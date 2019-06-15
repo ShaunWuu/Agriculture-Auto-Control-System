@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8"/>
+  <link rel="apple-touch-icon" sizes="76x76" href="../static/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../static/img/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>
+    自动控制系统 - 控制配置
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+        name='viewport'/>
+  <link href="../static/css/material-dashboard.css?v=2.1.0" rel="stylesheet"
+        th:href="@{/css/material-dashboard.css}"/>
+  <link href="../static/css/font.css" rel="stylesheet"
+        th:href="@{/css/font.css}">
+</head>
+
+<body>
+<div class="wrapper ">
+  <div class="sidebar" data-color="purple" data-background-color="white"
+       data-image="../static/img/sidebar-2.jpg" th:data-image="@{/img/sidebar-2.jpg}">
+    <div class="logo">
+      <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+        自动控制系统 - 控制配置
+      </a>
+    </div>
+    <div th:replace="commons/bar::sidebar(key='config')"></div>
+  </div>
+  <div class="main-panel">
+    <!-- Navbar -->
+    <nav th:replace="commons/bar::navbar"></nav>
+    <!-- End Navbar -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title">自动控制配置</h4>
+                <p class="card-category">在此处配置要自动保持的状态范围</p>
+              </div>
+              <div class="card-body">
+                <form>
+                  <div class="row">
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>空气温度范围: </label>
+                        <div id="airTemp" class="slider slider-warning noUi-target noUi-ltr noUi-horizontal"></div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>最低温度 ℃</label>
+                              <input id="lowAirTemp" type="text" class="form-control">
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>最高温度 ℃</label>
+                              <input id="highAirTemp" type="text" class="form-control">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>空气湿度范围: </label>
+                        <div id="airWater" class="slider slider-success noUi-target noUi-ltr noUi-horizontal"></div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>最低湿度 %</label>
+                              <input id="lowAirWater" type="text" class="form-control">
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>最高湿度 %</label>
+                              <input id="highAirWater" type="text" class="form-control">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>土壤温度范围: </label>
+                        <div id="earthTemp" class="slider slider-primary noUi-target noUi-ltr noUi-horizontal"></div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>最低温度 ℃</label>
+                              <input id="lowEarthTemp" type="text" class="form-control">
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>最高温度 ℃</label>
+                              <input id="highEarthTemp" type="text" class="form-control">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>土壤湿度范围: </label>
+                        <div id="earthWater" class="slider slider-info noUi-target noUi-ltr noUi-horizontal"></div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>最低湿度 %</label>
+                              <input id="lowEarthWater" type="text" class="form-control">
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>最高湿度 %</label>
+                              <input id="highEarthWater" type="text" class="form-control">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>空气 CO<sub>2</sub> 范围: </label>
+                        <div id="co2" class="slider slider-second noUi-target noUi-ltr noUi-horizontal"></div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>最低浓度 PPM</label>
+                              <input id="lowCO2" type="text" class="form-control">
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>最高浓度 PPM</label>
+                              <input id="highCO2" type="text" class="form-control">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>土壤 EC 值范围: </label>
+                        <div id="ec" class="slider slider-danger noUi-target noUi-ltr noUi-horizontal"></div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>最低EC (mS/cm)</label>
+                              <input id="lowEC" type="text" class="form-control">
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>最高EC (mS/cm)</label>
+                              <input id="highEC" type="text" class="form-control">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>土壤 PH 值范围: </label>
+                        <div id="ph" class="slider slider-rose noUi-target noUi-ltr noUi-horizontal"></div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>最低 PH</label>
+                              <input id="lowPH" type="text" class="form-control">
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>最高 PH</label>
+                              <input id="highPH" type="text" class="form-control">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>光照强度范围: </label>
+                        <div id="light" class="slider slider-warning noUi-target noUi-ltr noUi-horizontal"></div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>最低强度 lux</label>
+                              <input id="lowLight" type="text" class="form-control">
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>最高强度 lux</label>
+                              <input id="highLight" type="text" class="form-control">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>水池水位高度范围: </label>
+                        <div id="waterLevel" class="slider slider-info noUi-target noUi-ltr noUi-horizontal"></div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>最低高度</label>
+                              <input id="lowWaterLevel" type="text" class="form-control">
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>最高高度</label>
+                              <input id="highWaterLevel" type="text" class="form-control">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>监测时间间隔: </label>
+                        <div id="monitorInterval"
+                             class="slider noUi-target noUi-ltr noUi-horizontal"></div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>时间间隔 秒</label>
+                              <input id="monitorIntervalVal" type="text" class="form-control">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                  <button type="submit" class="btn btn-primary">保存配置</button>
+                  <button type="button" class="btn">恢复配置</button>
+                  <div class="clearfix"></div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../static/js/core/jquery.min.js"
+        th:src="@{/js/core/jquery.min.js}"></script>
+<script src="../static/js/core/popper.min.js"
+        th:src="@{/js/core/popper.min.js}"></script>
+<script src="../static/js/core/bootstrap-material-design.min.js"
+        th:src="@{/js/core/bootstrap-material-design.min.js}"></script>
+<script src="../static/js/plugins/perfect-scrollbar.jquery.min.js"
+        th:src="@{/js/plugins/perfect-scrollbar.jquery.min.js}"></script>
+<script src="../static/js/plugins/chartist.min.js"
+        th:src="@{/js/plugins/chartist.min.js}"></script>
+<script src="../static/js/plugins/bootstrap-notify.js"
+        th:src="@{/js/plugins/bootstrap-notify.js}"></script>
+<script src="../static/js/material-dashboard.min.js?v=2.1.0"
+        th:src="@{/js/material-dashboard.min.js}"></script>
+<script src="../static/js/plugins/nouislider.min.js"
+        th:src="@{/js/plugins/nouislider.min.js}"></script>
+<script src="../static/js/plugins/wNumb.js"
+        th:src="@{/js/plugins/wNumb.js}"></script>
+<script src="../static/js/config.js"
+        th:src="@{/js/config.js}"></script>
+</body>
+
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8"/>
+  <link rel="apple-touch-icon" sizes="76x76" href="../static/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../static/img/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    自动控制系统 - 系统记录
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+        name='viewport'/>
+  <link href="../static/css/material-dashboard.css?v=2.1.0" rel="stylesheet"
+        th:href="@{/css/material-dashboard.css}"/>
+  <link href="../static/css/font.css" rel="stylesheet"
+        th:href="@{/css/font.css}">
+  <link href="../static/css/pagination.css" rel="stylesheet"
+        th:href="@{/css/pagination.css}">
+</head>
+
+<body>
+  <div class="wrapper ">
+    <div class="sidebar" data-color="purple" data-background-color="white"
+         data-image="../static/img/sidebar-3.jpg" th:data-image="@{/img/sidebar-3.jpg}">
+      <div class="logo">
+        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+          自动控制系统 - 系统记录
+        </a>
+      </div>
+      <div th:replace="commons/bar::sidebar(key='table')"></div>
+    </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <nav th:replace="commons/bar::navbar"></nav>
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">操作记录表</h4>
+                  <p class="card-category">大棚内电动设备历次动作的处理状态</p>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-hover">
+                      <thead class=" text-primary">
+                        <th>#</th>
+                        <th>电动机构名称</th>
+                        <th>操作</th>
+                        <th>处理结果</th>
+                        <th>处理结果简述</th>
+                        <th>操作时间</th>
+                        <th>操作员ID</th>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="text-primary">1</td>
+                          <td>补光灯</td>
+                          <td>打开</td>
+                          <td>处理成功</td>
+                          <td>处理成功还有什么简述但是这个描述贼他妈多我感觉会放不下那我就试试再长一点</td>
+                          <td>2019-06-13 21:03:05</td>
+                          <td>1</td>
+                        </tr>
+                        <tr>
+                          <td class="text-primary">1</td>
+                          <td>补光灯</td>
+                          <td>打开</td>
+                          <td>处理成功</td>
+                          <td>处理成功还有什么简述</td>
+                          <td>2019-06-13 21:03:05</td>
+                          <td>1</td>
+                        </tr>
+                        <tr>
+                          <td class="text-primary">1</td>
+                          <td>补光灯</td>
+                          <td>打开</td>
+                          <td>处理成功</td>
+                          <td>处理成功还有什么简述</td>
+                          <td>2019-06-13 21:03:05</td>
+                          <td>1</td>
+                        </tr>
+                        <tr>
+                          <td class="text-primary">1</td>
+                          <td>补光灯</td>
+                          <td>打开</td>
+                          <td>处理成功</td>
+                          <td>处理成功还有什么简述</td>
+                          <td>2019-06-13 21:03:05</td>
+                          <td>1</td>
+                        </tr>
+                        <tr>
+                          <td class="text-primary">1</td>
+                          <td>补光灯</td>
+                          <td>打开</td>
+                          <td>处理成功</td>
+                          <td>处理成功还有什么简述</td>
+                          <td>2019-06-13 21:03:05</td>
+                          <td>1</td>
+                        </tr>
+                        <tr>
+                          <td class="text-primary">1</td>
+                          <td>补光灯</td>
+                          <td>打开</td>
+                          <td>处理成功</td>
+                          <td>处理成功还有什么简述</td>
+                          <td>2019-06-13 21:03:05</td>
+                          <td>1</td>
+                        </tr>
+                        <tr>
+                          <td class="text-primary">1</td>
+                          <td>补光灯</td>
+                          <td>打开</td>
+                          <td>处理成功</td>
+                          <td>处理成功还有什么简述</td>
+                          <td>2019-06-13 21:03:05</td>
+                          <td>1</td>
+                        </tr>
+                        <tr>
+                          <td class="text-primary">1</td>
+                          <td>补光灯</td>
+                          <td>打开</td>
+                          <td>处理成功</td>
+                          <td>处理成功还有什么简述</td>
+                          <td>2019-06-13 21:03:05</td>
+                          <td>1</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <ul class="pagination pagination-primary">
+                <li class="page-item"><a class="page-link" href="#">首页</a></li>
+                <li class="page-item"><a class="page-link" href="#">上一页</a></li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                <li class="page-item"><a class="page-link" href="#">下一页</a></li>
+                <li class="page-item"><a class="page-link" href="#">尾页</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../static/js/core/jquery.min.js"
+          th:src="@{/js/core/jquery.min.js}"></script>
+  <script src="../static/js/core/popper.min.js"
+          th:src="@{/js/core/popper.min.js}"></script>
+  <script src="../static/js/core/bootstrap-material-design.min.js"
+          th:src="@{/js/core/bootstrap-material-design.min.js}"></script>
+  <script src="../static/js/plugins/perfect-scrollbar.jquery.min.js"
+          th:src="@{/js/plugins/perfect-scrollbar.jquery.min.js}"></script>
+  <script src="../static/js/plugins/chartist.min.js"
+          th:src="@{/js/plugins/chartist.min.js}"></script>
+  <script src="../static/js/plugins/bootstrap-notify.js"
+          th:src="@{/js/plugins/bootstrap-notify.js}"></script>
+  <script src="../static/js/material-dashboard.min.js?v=2.1.0"
+          th:src="@{/js/material-dashboard.min.js}"></script>
+
+</body>
+
+</html>

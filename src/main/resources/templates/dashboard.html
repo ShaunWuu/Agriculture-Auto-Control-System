@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8"/>
+  <link rel="apple-touch-icon" sizes="76x76" href="../static/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../static/img/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>
+    自动控制系统 - 总监控台
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+        name='viewport'/>
+  <link href="../static/css/material-dashboard.css?v=2.1.0" rel="stylesheet"
+        th:href="@{/css/material-dashboard.css}"/>
+  <link href="../static/css/font.css" rel="stylesheet"
+        th:href="@{/css/font.css}">
+</head>
+
+<body>
+  <div class="wrapper ">
+    <div class="sidebar" data-color="purple" data-background-color="white"
+         data-image="../static/img/sidebar-1.jpg" th:data-image="@{/img/sidebar-1.jpg}">
+      <div class="logo">
+        <a href="https://www.jgsu.edu.cn/" target="_blank" class="simple-text logo-normal">
+          井冈山大学 - 智慧农业系统
+        </a>
+      </div>
+      <!-- 边栏 -->
+      <div th:replace="commons/bar::sidebar(key='dashboard')"></div>
+    </div>
+    <div class="main-panel">
+      <nav th:replace="commons/bar::navbar"></nav>
+      <div class="content">
+        <div class="container-fluid">
+          <!-- 仪表盘 -->
+          <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-warning card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">blur_circular</i>
+                  </div>
+                  <p class="card-category">空气温度1</p>
+                  <h3 class="card-title">32
+                    <small>℃</small>
+                  </h3>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons text-danger">warning</i>
+                    低报警
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-success card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">invert_colors</i>
+                  </div>
+                  <p class="card-category">空气湿度1</p>
+                  <h3 class="card-title">20
+                    <small>%</small>
+                  </h3>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons text-danger">error</i>
+                    高报警
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-warning card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">blur_circular</i>
+                  </div>
+                  <p class="card-category">空气温度2</p>
+                  <h3 class="card-title">31
+                    <small>℃</small>
+                  </h3>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">check_circle</i>
+                    无报警
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-success card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">invert_colors</i>
+                  </div>
+                  <p class="card-category">空气湿度2</p>
+                  <h3 class="card-title">20
+                    <small>%</small>
+                  </h3>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">check_circle</i>
+                    无报警
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-info card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">invert_colors</i>
+                  </div>
+                  <p class="card-category">土壤温度1</p>
+                  <h3 class="card-title">20
+                    <small>%</small>
+                  </h3>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">check_circle</i>
+                    无报警
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-primary card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">opacity</i>
+                  </div>
+                  <p class="card-category">土壤水分1</p>
+                  <h3 class="card-title">20
+                    <small>%</small>
+                  </h3>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">check_circle</i>
+                    无报警
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-info card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">invert_colors</i>
+                  </div>
+                  <p class="card-category">土壤温度2</p>
+                  <h3 class="card-title">21
+                    <small>%</small>
+                  </h3>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">check_circle</i>
+                    无报警
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-primary card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">opacity</i>
+                  </div>
+                  <p class="card-category">土壤水分2</p>
+                  <h3 class="card-title">21
+                    <small>%</small>
+                  </h3>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">check_circle</i>
+                    无报警
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-info card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">invert_colors</i>
+                  </div>
+                  <p class="card-category">土壤温度3</p>
+                  <h3 class="card-title">21
+                    <small>%</small>
+                  </h3>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">check_circle</i>
+                    无报警
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-primary card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">opacity</i>
+                  </div>
+                  <p class="card-category">土壤水分3</p>
+                  <h3 class="card-title">21
+                    <small>%</small>
+                  </h3>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">check_circle</i>
+                    无报警
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-info card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">invert_colors</i>
+                  </div>
+                  <p class="card-category">土壤温度4</p>
+                  <h3 class="card-title">21
+                    <small>%</small>
+                  </h3>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">check_circle</i>
+                    无报警
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-primary card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">opacity</i>
+                  </div>
+                  <p class="card-category">土壤水分4</p>
+                  <h3 class="card-title">21
+                    <small>%</small>
+                  </h3>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">check_circle</i>
+                    无报警
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-second card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">tonality</i>
+                  </div>
+                  <p class="card-category">空气CO<sub>2</sub>浓度1</p>
+                  <h3 class="card-title">21
+                    <small>%</small>
+                  </h3>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">check_circle</i>
+                    无报警
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-second card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">tonality</i>
+                  </div>
+                  <p class="card-category">空气CO<sub>2</sub>浓度2</p>
+                  <h3 class="card-title">22
+                    <small>%</small>
+                  </h3>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">check_circle</i>
+                    无报警
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-danger card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">border_top</i>
+                  </div>
+                  <p class="card-category">土壤EC值1</p>
+                  <h3 class="card-title">22
+                    <small>%</small>
+                  </h3>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">check_circle</i>
+                    无报警
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-danger card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">border_top</i>
+                  </div>
+                  <p class="card-category">土壤EC值2</p>
+                  <h3 class="card-title">23
+                    <small>%</small>
+                  </h3>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">check_circle</i>
+                    无报警
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-danger card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">border_top</i>
+                  </div>
+                  <p class="card-category">土壤EC值3</p>
+                  <h3 class="card-title">23
+                    <small>%</small>
+                  </h3>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">check_circle</i>
+                    无报警
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-rose card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">blur_on</i>
+                  </div>
+                  <p class="card-category">土壤PH值1</p>
+                  <h3 class="card-title">7
+                    <!--                    <small>%</small>-->
+                  </h3>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">check_circle</i>
+                    无报警
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-rose card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">blur_on</i>
+                  </div>
+                  <p class="card-category">土壤PH值2</p>
+                  <h3 class="card-title">7
+                  </h3>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">check_circle</i>
+                    无报警
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-rose card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">blur_on</i>
+                  </div>
+                  <p class="card-category">土壤PH值3</p>
+                  <h3 class="card-title">7
+                  </h3>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">check_circle</i>
+                    无报警
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-warning card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">brightness_5</i>
+                  </div>
+                  <p class="card-category">光照强度1</p>
+                  <h3 class="card-title">7
+                  </h3>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">check_circle</i>
+                    无报警
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-warning card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">brightness_5</i>
+                  </div>
+                  <p class="card-category">光照强度2</p>
+                  <h3 class="card-title">7
+                  </h3>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">check_circle</i>
+                    无报警
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-info card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">gradient</i>
+                  </div>
+                  <p class="card-category">水池水位高度</p>
+                  <h3 class="card-title">7
+                  </h3>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">check_circle</i>
+                    无报警
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-primary card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">storage</i>
+                  </div>
+                  <p class="card-category">数据更新时间</p>
+                  <h3 class="card-title">2019-06-13 16:05:57
+                  </h3>
+                  <br>
+                </div>
+                <!--                <div class="card-footer">-->
+                <!--                  <div class="stats">-->
+                <!--                    <i class="material-icons">info</i>-->
+                <!--                  </div>-->
+                <!--                </div>-->
+              </div>
+            </div>
+
+
+          </div>
+          <!-- 统计图 -->
+          <!--<div class="row">-->
+          <!--  <div class="col-md-4">-->
+          <!--    <div class="card card-chart">-->
+          <!--      <div class="card-header card-header-success">-->
+          <!--        <div class="ct-chart" id="dailySalesChart"></div>-->
+          <!--      </div>-->
+          <!--      <div class="card-body">-->
+          <!--        <h4 class="card-title">Daily Sales</h4>-->
+          <!--        <p class="card-category">-->
+          <!--          <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p>-->
+          <!--      </div>-->
+          <!--      <div class="card-footer">-->
+          <!--        <div class="stats">-->
+          <!--          <i class="material-icons">access_time</i> updated 4 minutes ago-->
+          <!--        </div>-->
+          <!--      </div>-->
+          <!--    </div>-->
+          <!--  </div>-->
+          <!--  <div class="col-md-4">-->
+          <!--    <div class="card card-chart">-->
+          <!--      <div class="card-header card-header-warning">-->
+          <!--        <div class="ct-chart" id="websiteViewsChart"></div>-->
+          <!--      </div>-->
+          <!--      <div class="card-body">-->
+          <!--        <h4 class="card-title">Email Subscriptions</h4>-->
+          <!--        <p class="card-category">Last Campaign Performance</p>-->
+          <!--      </div>-->
+          <!--      <div class="card-footer">-->
+          <!--        <div class="stats">-->
+          <!--          <i class="material-icons">access_time</i> campaign sent 2 days ago-->
+          <!--        </div>-->
+          <!--      </div>-->
+          <!--    </div>-->
+          <!--  </div>-->
+          <!--  <div class="col-md-4">-->
+          <!--    <div class="card card-chart">-->
+          <!--      <div class="card-header card-header-danger">-->
+          <!--        <div class="ct-chart" id="completedTasksChart"></div>-->
+          <!--      </div>-->
+          <!--      <div class="card-body">-->
+          <!--        <h4 class="card-title">Completed Tasks</h4>-->
+          <!--        <p class="card-category">Last Campaign Performance</p>-->
+          <!--      </div>-->
+          <!--      <div class="card-footer">-->
+          <!--        <div class="stats">-->
+          <!--          <i class="material-icons">access_time</i> campaign sent 2 days ago-->
+          <!--        </div>-->
+          <!--      </div>-->
+          <!--    </div>-->
+          <!--  </div>-->
+          <!--</div>-->
+          <!-- 设备状态 -->
+          <div class="row">
+            <div class="col-lg-6 col-md-12">
+              <div class="card">
+                <div class="card-header card-header-tabs card-header-primary">
+                  <h4 class="card-title">设备状态</h4>
+                  <p class="card-category">点击设备左侧指示灯可手动开关设备</p>
+                  <p class="card-category">数据更新时间：2019-06-13 16:43:59</p>
+                </div>
+                <div class="card-body">
+                  <div class="tab-content">
+                    <div class="tab-pane active" id="profile">
+                      <table class="table table-hover">
+                        <tbody>
+                        <tr>
+                          <td class="td-actions text-left">
+                            <button type="button" rel="tooltip" title="已开启"
+                                    class="btn btn-success btn-link btn-sm">
+                              <i class="material-icons">lens</i>
+                            </button>
+                          </td>
+                          <td>1# 天窗状态</td>
+                          <td>已开启</td>
+                        </tr>
+                        <tr>
+                          <td class="td-actions text-left">
+                            <button type="button" rel="tooltip" title="已开启"
+                                    class="btn btn-success btn-link btn-sm">
+                              <i class="material-icons">lens</i>
+                            </button>
+                          </td>
+                          <td>2# 天窗状态</td>
+                          <td class="td-actions text-right">已开启</td>
+                        </tr>
+                        <tr>
+                          <td class="td-actions text-left">
+                            <button type="button" rel="tooltip" title="已关闭"
+                                    class="btn btn-danger btn-link btn-sm">
+                              <i class="material-icons">lens</i>
+                            </button>
+                          </td>
+                          <td>侧窗状态</td>
+                          <td class="td-actions text-right">已关闭</td>
+                        </tr>
+                        <tr>
+                          <td class="td-actions text-left">
+                            <button type="button" rel="tooltip" title="已打开"
+                                    class="btn btn-success btn-link btn-sm">
+                              <i class="material-icons">lens</i>
+                            </button>
+                          </td>
+                          <td>1# 顶帘状态</td>
+                          <td class="td-actions text-right">已关闭</td>
+                        </tr>
+                        <tr>
+                          <td class="td-actions text-left">
+                            <button type="button" rel="tooltip" title="已打开"
+                                    class="btn btn-success btn-link btn-sm">
+                              <i class="material-icons">lens</i>
+                            </button>
+                          </td>
+                          <td>2# 顶帘状态</td>
+                          <td class="td-actions text-right">已关闭</td>
+                        </tr>
+                        <tr>
+                          <td class="td-actions text-left">
+                            <button type="button" rel="tooltip" title="已关闭"
+                                    class="btn btn-danger btn-link btn-sm">
+                              <i class="material-icons">lens</i>
+                            </button>
+                          </td>
+                          <td>3# 顶帘状态</td>
+                          <td class="td-actions text-right">已关闭</td>
+                        </tr>
+                        <tr>
+                          <td class="td-actions text-left">
+                            <button type="button" rel="tooltip" title="已关闭"
+                                    class="btn btn-danger btn-link btn-sm">
+                              <i class="material-icons">lens</i>
+                            </button>
+                          </td>
+                          <td>侧帘状态</td>
+                          <td class="td-actions text-right">已关闭</td>
+                        </tr>
+                        <tr>
+                          <td class="td-actions text-left">
+                            <button type="button" rel="tooltip" title="已关闭"
+                                    class="btn btn-danger btn-link btn-sm">
+                              <i class="material-icons">lens</i>
+                            </button>
+                          </td>
+                          <td>侧帘状态</td>
+                          <td class="td-actions text-right">已关闭</td>
+                        </tr>
+                        <tr>
+                          <td class="td-actions text-left">
+                            <button type="button" rel="tooltip" title="已关闭"
+                                    class="btn btn-danger btn-link btn-sm">
+                              <i class="material-icons">lens</i>
+                            </button>
+                          </td>
+                          <td>1#通风机状态</td>
+                          <td class="td-actions text-right">已关闭</td>
+                        </tr>
+                        <tr>
+                          <td class="td-actions text-left">
+                            <button type="button" rel="tooltip" title="已关闭"
+                                    class="btn btn-danger btn-link btn-sm">
+                              <i class="material-icons">lens</i>
+                            </button>
+                          </td>
+                          <td>2# 通风机状态</td>
+                          <td class="td-actions text-right">已关闭</td>
+                        </tr>
+                        <tr>
+                          <td class="td-actions text-left">
+                            <button type="button" rel="tooltip" title="已关闭"
+                                    class="btn btn-danger btn-link btn-sm">
+                              <i class="material-icons">lens</i>
+                            </button>
+                          </td>
+                          <td>1# 暖风机状态</td>
+                          <td class="td-actions text-right">已关闭</td>
+                        </tr>
+                        <tr>
+                          <td class="td-actions text-left">
+                            <button type="button" rel="tooltip" title="已关闭"
+                                    class="btn btn-danger btn-link btn-sm">
+                              <i class="material-icons">lens</i>
+                            </button>
+                          </td>
+                          <td>2# 暖风机状态</td>
+                          <td class="td-actions text-right">已关闭</td>
+                        </tr>
+                        <tr>
+                          <td class="td-actions text-left">
+                            <button type="button" rel="tooltip" title="已关闭"
+                                    class="btn btn-danger btn-link btn-sm">
+                              <i class="material-icons">lens</i>
+                            </button>
+                          </td>
+                          <td>喷雾器状态</td>
+                          <td class="td-actions text-right">已关闭</td>
+                        </tr>
+                        <tr>
+                          <td class="td-actions text-left">
+                            <button type="button" rel="tooltip" title="已关闭"
+                                    class="btn btn-danger btn-link btn-sm">
+                              <i class="material-icons">lens</i>
+                            </button>
+                          </td>
+                          <td>灌溉出水阀状态</td>
+                          <td class="td-actions text-right">已关闭</td>
+                        </tr>
+                        <tr>
+                          <td class="td-actions text-left">
+                            <button type="button" rel="tooltip" title="已关闭"
+                                    class="btn btn-danger btn-link btn-sm">
+                              <i class="material-icons">lens</i>
+                            </button>
+                          </td>
+                          <td>补光灯1状态</td>
+                          <td class="td-actions text-right">已关闭</td>
+                        </tr>
+                        <tr>
+                          <td class="td-actions text-left">
+                            <button type="button" rel="tooltip" title="已关闭"
+                                    class="btn btn-danger btn-link btn-sm">
+                              <i class="material-icons">lens</i>
+                            </button>
+                          </td>
+                          <td>补光灯2状态</td>
+                          <td class="td-actions text-right">已关闭</td>
+                        </tr>
+                        <tr>
+                          <td class="td-actions text-left">
+                            <button type="button" rel="tooltip" title="已关闭"
+                                    class="btn btn-danger btn-link btn-sm">
+                              <i class="material-icons">lens</i>
+                            </button>
+                          </td>
+                          <td>补光灯3状态</td>
+                          <td class="td-actions text-right">已关闭</td>
+                        </tr>
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+              <div class="card">
+                <div class="card-header card-header-warning">
+                  <h4 class="card-title">设备操作记录</h4>
+                  <a href="table.html" class="card-category">&gt;&nbsp;只显示简略的操作记录，更详细信息请点击这里查看设备状态</a>
+                </div>
+                <div class="card-body table-responsive">
+                  <table class="table table-hover">
+                    <thead class="text-warning">
+                    <th>操作员ID</th>
+                    <th>设备名称</th>
+                    <th>操作</th>
+                    <th>处理结果</th>
+                    <th>处理时间</th>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>暖风机</td>
+                      <td>打开</td>
+                      <td>成功</td>
+                      <td>2019-06-13 16:48:32</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>1# 天窗</td>
+                      <td>打开</td>
+                      <td>成功</td>
+                      <td>2019-06-13 16:48:32</td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>2# 天窗</td>
+                      <td>打开</td>
+                      <td>成功</td>
+                      <td>2019-06-13 16:48:33</td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>1# 顶帘</td>
+                      <td>打开</td>
+                      <td>成功</td>
+                      <td>2019-06-13 16:48:34</td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>1# 顶帘</td>
+                      <td>打开</td>
+                      <td>成功</td>
+                      <td>2019-06-13 16:48:34</td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>1# 顶帘</td>
+                      <td>打开</td>
+                      <td>成功</td>
+                      <td>2019-06-13 16:48:34</td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>1# 顶帘</td>
+                      <td>打开</td>
+                      <td>成功</td>
+                      <td>2019-06-13 16:48:34</td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>1# 顶帘</td>
+                      <td>打开</td>
+                      <td>成功</td>
+                      <td>2019-06-13 16:48:34</td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>1# 顶帘</td>
+                      <td>打开</td>
+                      <td>成功</td>
+                      <td>2019-06-13 16:48:34</td>
+                    </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../static/js/core/jquery.min.js"
+          th:src="@{/js/core/jquery.min.js}"></script>
+  <script src="../static/js/core/popper.min.js"
+          th:src="@{/js/core/popper.min.js}"></script>
+  <script src="../static/js/core/bootstrap-material-design.min.js"
+          th:src="@{/js/core/bootstrap-material-design.min.js}"></script>
+  <script src="../static/js/plugins/perfect-scrollbar.jquery.min.js"
+          th:src="@{/js/plugins/perfect-scrollbar.jquery.min.js}"></script>
+  <script src="../static/js/plugins/chartist.min.js"
+          th:src="@{/js/plugins/chartist.min.js}"></script>
+  <script src="../static/js/plugins/bootstrap-notify.js"
+          th:src="@{/js/plugins/bootstrap-notify.js}"></script>
+  <script src="../static/js/material-dashboard.min.js?v=2.1.0"
+          th:src="@{/js/material-dashboard.min.js}"></script>
+
+</body>
+
+</html>
