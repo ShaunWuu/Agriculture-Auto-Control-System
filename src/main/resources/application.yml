@@ -15,6 +15,6 @@ mybatis:
 
 spring:
   datasource:
-    url: jdbc:mysql://47.101.51.81:3306?serverTimezone=Asia/Shanghai
-    username: root
-    password: qweqwe
+    url: ${url}
+    username: ${username}
+    password: ${password}
