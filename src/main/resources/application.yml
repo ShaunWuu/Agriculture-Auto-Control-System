@@ -3,13 +3,6 @@ server:
 logging:
   level: debug
 
-#spring:
-#  datasource:
-#    hikari:
-#      jdbc-url: 192.168.200.3
-#      username: sa
-#      password: Zte123
-
 mybatis:
   config-location: classpath:mybatis/mybatis-config.xml
 
