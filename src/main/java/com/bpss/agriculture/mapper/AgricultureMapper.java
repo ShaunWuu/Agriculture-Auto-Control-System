@@ -6,20 +6,22 @@ import com.bpss.agriculture.entity.MotoInfo;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 /**
  * @author Rocky Wu
  */
+@Component
 public interface AgricultureMapper {
 
     @Options(useGeneratedKeys = true,keyProperty = "iGreenHouseId")
-    @Select("SELECT * FROM [dbo].[tGreenHouseInfo]")
+    @Select("SELECT * FROM tGreenHouseInfo")
     GreenHouseInfo getGreenHouseInfo();
 
     @Insert("INSERT INTO " +
-            "[dbo].[tMotoCmdInfo] (vcMotoName, iActCmd, vcActName, iCmdStatus, vcRemark, vcTime, iOperatorId) " +
+            "tMotoCmdInfo (vcMotoName, iActCmd, vcActName, iCmdStatus, vcRemark, vcTime, iOperatorId) " +
             "VALUES " +
             "(#{vcMotoName}, #{iActCmd}, #{vcActName}, #{iCmdStatus}, #{vcRemark}, #{vcTime}, #{iOperatorId})")
     void writeMotoCmd(MotoCmdInfo info);
@@ -27,7 +29,12 @@ public interface AgricultureMapper {
     @Select("SELECT * FROM tMotoCmdInfo")
     List<MotoCmdInfo> getAllMotoCmdInfo();
 
-    @Select("SELECT * FROM tMotoCmdInfo LIMIT 100")
+    /**
+     * Dashboard 中的设备操作记录简略表
+     * @return MotoCmdInfo 表
+     */
+    // @Select("SELECT TOP 17 * FROM tMotoCmdInfo")
+    @Select("SELECT * FROM tMotoCmdInfo LIMIT 17")
     List<MotoCmdInfo> getLatestMotoCmdInfo();
 
     @Select("SELECT * FROM tMotoInfo")

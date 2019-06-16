@@ -6,7 +6,7 @@ var co2 = document.getElementById("co2");
 var ec = document.getElementById("ec");
 var ph = document.getElementById("ph");
 var light = document.getElementById("light");
-var waterLevel = document.getElementById("waterLevel");
+// var waterLevel = document.getElementById("waterLevel");
 var monitorInterval = document.getElementById("monitorInterval");
 
 noUiSlider.create(airTemp, {
@@ -145,22 +145,22 @@ noUiSlider.create(light, {
     })
 });
 
-noUiSlider.create(waterLevel, {
-    start: [40, 60],
-    connect: true,
-    step: 0.01,
-    range: {
-        'min': 0,
-        'max': 100
-    },
-    ariaFormat: wNumb({
-        decimals: 0
-    })
-    ,
-    format: wNumb({
-        decimals: 0
-    })
-});
+// noUiSlider.create(waterLevel, {
+//     start: [40, 60],
+//     connect: true,
+//     step: 0.01,
+//     range: {
+//         'min': 0,
+//         'max': 100
+//     },
+//     ariaFormat: wNumb({
+//         decimals: 0
+//     })
+//     ,
+//     format: wNumb({
+//         decimals: 0
+//     })
+// });
 
 noUiSlider.create(monitorInterval, {
     start: [3],
@@ -202,8 +202,8 @@ var highPH = document.getElementById('highPH');
 var lowLight = document.getElementById('lowLight');
 var highLight = document.getElementById('highLight');
 
-var lowWaterLevel = document.getElementById('lowWaterLevel');
-var highWaterLevel = document.getElementById('highWaterLevel');
+// var lowWaterLevel = document.getElementById('lowWaterLevel');
+// var highWaterLevel = document.getElementById('highWaterLevel');
 
 var monitorIntervalVal = document.getElementById("monitorIntervalVal");
 
@@ -359,22 +359,22 @@ highLight.addEventListener('change', function () {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-waterLevel.noUiSlider.on('update', function (values) {
-    document.getElementById('lowWaterLevel').setAttribute('value', values[0]);
-    document.getElementById('lowWaterLevel').value = values[0];
-    document.getElementById('highWaterLevel').setAttribute('value', values[1]);
-    document.getElementById('highWaterLevel').value = values[1];
-});
-
-lowWaterLevel.addEventListener('change', function () {
-    var getter = waterLevel.noUiSlider.get();
-    waterLevel.noUiSlider.set([lowWaterLevel.value,getter[1]])
-});
-
-highWaterLevel.addEventListener('change', function () {
-    var getter = waterLevel.noUiSlider.get();
-    waterLevel.noUiSlider.set([getter[0], highWaterLevel.value])
-});
+// waterLevel.noUiSlider.on('update', function (values) {
+//     document.getElementById('lowWaterLevel').setAttribute('value', values[0]);
+//     document.getElementById('lowWaterLevel').value = values[0];
+//     document.getElementById('highWaterLevel').setAttribute('value', values[1]);
+//     document.getElementById('highWaterLevel').value = values[1];
+// });
+//
+// lowWaterLevel.addEventListener('change', function () {
+//     var getter = waterLevel.noUiSlider.get();
+//     waterLevel.noUiSlider.set([lowWaterLevel.value,getter[1]])
+// });
+//
+// highWaterLevel.addEventListener('change', function () {
+//     var getter = waterLevel.noUiSlider.get();
+//     waterLevel.noUiSlider.set([getter[0], highWaterLevel.value])
+// });
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 

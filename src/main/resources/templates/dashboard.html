@@ -34,7 +34,7 @@
       <div class="content">
         <div class="container-fluid">
           <!-- 仪表盘 -->
-          <div class="row">
+          <div class="row" th:object="${greenHouseInfo}">
             <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card card-stats">
                 <div class="card-header card-header-warning card-header-icon">
@@ -42,14 +42,22 @@
                     <i class="material-icons">blur_circular</i>
                   </div>
                   <p class="card-category">空气温度1</p>
-                  <h3 class="card-title">32
+                  <h3 class="card-title" th:utext="*{#numbers.formatDecimal(getFAirTemp1(),1,1)} + ' <small>℃</small>'">32
                     <small>℃</small>
                   </h3>
                 </div>
                 <div class="card-footer">
-                  <div class="stats">
+                  <div class="stats" th:if="*{getIAirTempAlarmFlag1() == 0}">
+                    <i class="material-icons">check_circle</i>
+                    无报警
+                  </div>
+                  <div class="stats" th:if="*{getIAirTempAlarmFlag1() == 1}">
                     <i class="material-icons text-danger">warning</i>
                     低报警
+                  </div>
+                  <div class="stats" th:if="*{getIAirTempAlarmFlag1() == 2}">
+                    <i class="material-icons text-danger">error</i>
+                    高报警
                   </div>
                 </div>
               </div>
@@ -61,12 +69,20 @@
                     <i class="material-icons">invert_colors</i>
                   </div>
                   <p class="card-category">空气湿度1</p>
-                  <h3 class="card-title">20
+                  <h3 class="card-title" th:utext="*{#numbers.formatDecimal(getFAirWater1(),1,1)} + ' <small>%</small>'">20
                     <small>%</small>
                   </h3>
                 </div>
                 <div class="card-footer">
-                  <div class="stats">
+                  <div class="stats" th:if="*{getIAirWaterAlarmFlag1() == 0}">
+                    <i class="material-icons">check_circle</i>
+                    无报警
+                  </div>
+                  <div class="stats" th:if="*{getIAirWaterAlarmFlag1() == 1}">
+                    <i class="material-icons text-danger">warning</i>
+                    低报警
+                  </div>
+                  <div class="stats" th:if="*{getIAirWaterAlarmFlag1() == 2}">
                     <i class="material-icons text-danger">error</i>
                     高报警
                   </div>
@@ -80,14 +96,22 @@
                     <i class="material-icons">blur_circular</i>
                   </div>
                   <p class="card-category">空气温度2</p>
-                  <h3 class="card-title">31
+                  <h3 class="card-title" th:utext="*{#numbers.formatDecimal(getFAirTemp2(),1,1)} + ' <small>℃</small>'">32
                     <small>℃</small>
                   </h3>
                 </div>
                 <div class="card-footer">
-                  <div class="stats">
+                  <div class="stats" th:if="*{getIAirWaterAlarmFlag2()== 0}">
                     <i class="material-icons">check_circle</i>
                     无报警
+                  </div>
+                  <div class="stats" th:if="*{getIAirWaterAlarmFlag2()== 1}">
+                    <i class="material-icons text-danger">warning</i>
+                    低报警
+                  </div>
+                  <div class="stats" th:if="*{getIAirWaterAlarmFlag2()== 2}">
+                    <i class="material-icons text-danger">error</i>
+                    高报警
                   </div>
                 </div>
               </div>
@@ -99,14 +123,22 @@
                     <i class="material-icons">invert_colors</i>
                   </div>
                   <p class="card-category">空气湿度2</p>
-                  <h3 class="card-title">20
+                  <h3 class="card-title" th:utext="*{#numbers.formatDecimal(getFAirWater2(),1,1)} + ' <small>%</small>'">20
                     <small>%</small>
                   </h3>
                 </div>
                 <div class="card-footer">
-                  <div class="stats">
+                  <div class="stats" th:if="*{getIAirWaterAlarmFlag2()== 0}">
                     <i class="material-icons">check_circle</i>
                     无报警
+                  </div>
+                  <div class="stats" th:if="*{getIAirWaterAlarmFlag2()== 1}">
+                    <i class="material-icons text-danger">warning</i>
+                    低报警
+                  </div>
+                  <div class="stats" th:if="*{getIAirWaterAlarmFlag2()== 2}">
+                    <i class="material-icons text-danger">error</i>
+                    高报警
                   </div>
                 </div>
               </div>
@@ -118,14 +150,22 @@
                     <i class="material-icons">invert_colors</i>
                   </div>
                   <p class="card-category">土壤温度1</p>
-                  <h3 class="card-title">20
-                    <small>%</small>
+                  <h3 class="card-title" th:utext="*{#numbers.formatDecimal(getFEarthTemp1(),1,1)} + ' <small>℃</small>'">20
+                    <small>℃</small>
                   </h3>
                 </div>
                 <div class="card-footer">
-                  <div class="stats">
+                  <div class="stats" th:if="*{getIEarthTempAlarmFlag1()== 0}">
                     <i class="material-icons">check_circle</i>
                     无报警
+                  </div>
+                  <div class="stats" th:if="*{getIEarthTempAlarmFlag1()== 1}">
+                    <i class="material-icons text-danger">warning</i>
+                    低报警
+                  </div>
+                  <div class="stats" th:if="*{getIEarthTempAlarmFlag1()== 2}">
+                    <i class="material-icons text-danger">error</i>
+                    高报警
                   </div>
                 </div>
               </div>
@@ -137,14 +177,22 @@
                     <i class="material-icons">opacity</i>
                   </div>
                   <p class="card-category">土壤水分1</p>
-                  <h3 class="card-title">20
+                  <h3 class="card-title" th:utext="*{#numbers.formatDecimal(getFEarthWater1(),1,1)} + ' <small>%</small>'">20
                     <small>%</small>
                   </h3>
                 </div>
                 <div class="card-footer">
-                  <div class="stats">
+                  <div class="stats" th:if="*{getIEarthWaterAlarmFlag1()== 0}">
                     <i class="material-icons">check_circle</i>
                     无报警
+                  </div>
+                  <div class="stats" th:if="*{getIEarthWaterAlarmFlag1()== 1}">
+                    <i class="material-icons text-danger">warning</i>
+                    低报警
+                  </div>
+                  <div class="stats" th:if="*{getIEarthWaterAlarmFlag1()== 2}">
+                    <i class="material-icons text-danger">error</i>
+                    高报警
                   </div>
                 </div>
               </div>
@@ -156,14 +204,22 @@
                     <i class="material-icons">invert_colors</i>
                   </div>
                   <p class="card-category">土壤温度2</p>
-                  <h3 class="card-title">21
-                    <small>%</small>
+                  <h3 class="card-title" th:utext="*{#numbers.formatDecimal(getFEarthTemp2(),1,1)} + ' <small>℃</small>'">21
+                    <small>℃</small>
                   </h3>
                 </div>
                 <div class="card-footer">
-                  <div class="stats">
+                  <div class="stats" th:if="*{getIEarthTempAlarmFlag2()== 0}">
                     <i class="material-icons">check_circle</i>
                     无报警
+                  </div>
+                  <div class="stats" th:if="*{getIEarthTempAlarmFlag2()== 1}">
+                    <i class="material-icons text-danger">warning</i>
+                    低报警
+                  </div>
+                  <div class="stats" th:if="*{getIEarthTempAlarmFlag2()== 2}">
+                    <i class="material-icons text-danger">error</i>
+                    高报警
                   </div>
                 </div>
               </div>
@@ -175,14 +231,22 @@
                     <i class="material-icons">opacity</i>
                   </div>
                   <p class="card-category">土壤水分2</p>
-                  <h3 class="card-title">21
+                  <h3 class="card-title" th:utext="*{#numbers.formatDecimal(getFEarthWater2(),1,1)} + ' <small>%</small>'">21
                     <small>%</small>
                   </h3>
                 </div>
                 <div class="card-footer">
-                  <div class="stats">
+                  <div class="stats" th:if="*{getIEarthWaterAlarmFlag2()== 0}">
                     <i class="material-icons">check_circle</i>
                     无报警
+                  </div>
+                  <div class="stats" th:if="*{getIEarthWaterAlarmFlag2()== 1}">
+                    <i class="material-icons text-danger">warning</i>
+                    低报警
+                  </div>
+                  <div class="stats" th:if="*{getIEarthWaterAlarmFlag2()== 2}">
+                    <i class="material-icons text-danger">error</i>
+                    高报警
                   </div>
                 </div>
               </div>
@@ -195,14 +259,22 @@
                     <i class="material-icons">invert_colors</i>
                   </div>
                   <p class="card-category">土壤温度3</p>
-                  <h3 class="card-title">21
-                    <small>%</small>
+                  <h3 class="card-title" th:utext="*{#numbers.formatDecimal(getFEarthTemp3(),1,1)} + ' <small>℃</small>'">21
+                    <small>℃</small>
                   </h3>
                 </div>
                 <div class="card-footer">
-                  <div class="stats">
+                  <div class="stats" th:if="*{getIEarthTempAlarmFlag3()== 0}">
                     <i class="material-icons">check_circle</i>
                     无报警
+                  </div>
+                  <div class="stats" th:if="*{getIEarthTempAlarmFlag3()== 1}">
+                    <i class="material-icons text-danger">warning</i>
+                    低报警
+                  </div>
+                  <div class="stats" th:if="*{getIEarthTempAlarmFlag3()== 2}">
+                    <i class="material-icons text-danger">error</i>
+                    高报警
                   </div>
                 </div>
               </div>
@@ -214,14 +286,22 @@
                     <i class="material-icons">opacity</i>
                   </div>
                   <p class="card-category">土壤水分3</p>
-                  <h3 class="card-title">21
+                  <h3 class="card-title" th:utext="*{#numbers.formatDecimal(getFEarthWater3(),1,1)} + ' <small>%</small>'">21
                     <small>%</small>
                   </h3>
                 </div>
                 <div class="card-footer">
-                  <div class="stats">
+                  <div class="stats" th:if="*{getIEarthWaterAlarmFlag3()== 0}">
                     <i class="material-icons">check_circle</i>
                     无报警
+                  </div>
+                  <div class="stats" th:if="*{getIEarthWaterAlarmFlag3()== 1}">
+                    <i class="material-icons text-danger">warning</i>
+                    低报警
+                  </div>
+                  <div class="stats" th:if="*{getIEarthWaterAlarmFlag3()== 2}">
+                    <i class="material-icons text-danger">error</i>
+                    高报警
                   </div>
                 </div>
               </div>
@@ -233,14 +313,22 @@
                     <i class="material-icons">invert_colors</i>
                   </div>
                   <p class="card-category">土壤温度4</p>
-                  <h3 class="card-title">21
-                    <small>%</small>
+                  <h3 class="card-title" th:utext="*{#numbers.formatDecimal(getFEarthTemp4(),1,1)} + ' <small>℃</small>'">21
+                    <small>℃</small>
                   </h3>
                 </div>
                 <div class="card-footer">
-                  <div class="stats">
+                  <div class="stats" th:if="*{getIEarthTempAlarmFlag4()== 0}">
                     <i class="material-icons">check_circle</i>
                     无报警
+                  </div>
+                  <div class="stats" th:if="*{getIEarthTempAlarmFlag4()== 1}">
+                    <i class="material-icons text-danger">warning</i>
+                    低报警
+                  </div>
+                  <div class="stats" th:if="*{getIEarthTempAlarmFlag4()== 2}">
+                    <i class="material-icons text-danger">error</i>
+                    高报警
                   </div>
                 </div>
               </div>
@@ -252,14 +340,22 @@
                     <i class="material-icons">opacity</i>
                   </div>
                   <p class="card-category">土壤水分4</p>
-                  <h3 class="card-title">21
+                  <h3 class="card-title" th:utext="*{#numbers.formatDecimal(getFEarthWater4(),1,1)} + ' <small>%</small>'">21
                     <small>%</small>
                   </h3>
                 </div>
                 <div class="card-footer">
-                  <div class="stats">
+                  <div class="stats" th:if="*{getIEarthWaterAlarmFlag4()== 0}">
                     <i class="material-icons">check_circle</i>
                     无报警
+                  </div>
+                  <div class="stats" th:if="*{getIEarthWaterAlarmFlag4()== 1}">
+                    <i class="material-icons text-danger">warning</i>
+                    低报警
+                  </div>
+                  <div class="stats" th:if="*{getIEarthWaterAlarmFlag4()== 2}">
+                    <i class="material-icons text-danger">error</i>
+                    高报警
                   </div>
                 </div>
               </div>
@@ -271,14 +367,22 @@
                     <i class="material-icons">tonality</i>
                   </div>
                   <p class="card-category">空气CO<sub>2</sub>浓度1</p>
-                  <h3 class="card-title">21
-                    <small>%</small>
+                  <h3 class="card-title" th:utext="*{#numbers.formatDecimal(getFCo2(),1,0)} + ' <small> ppm</small>'">21
+                    <small> ppm</small>
                   </h3>
                 </div>
                 <div class="card-footer">
-                  <div class="stats">
+                  <div class="stats" th:if="*{getICo2AlarmFlag()== 0}">
                     <i class="material-icons">check_circle</i>
                     无报警
+                  </div>
+                  <div class="stats" th:if="*{getICo2AlarmFlag()== 1}">
+                    <i class="material-icons text-danger">warning</i>
+                    低报警
+                  </div>
+                  <div class="stats" th:if="*{getICo2AlarmFlag()== 2}">
+                    <i class="material-icons text-danger">error</i>
+                    高报警
                   </div>
                 </div>
               </div>
@@ -290,14 +394,22 @@
                     <i class="material-icons">tonality</i>
                   </div>
                   <p class="card-category">空气CO<sub>2</sub>浓度2</p>
-                  <h3 class="card-title">22
-                    <small>%</small>
+                  <h3 class="card-title" th:utext="*{#numbers.formatDecimal(getFCo22(),1,0)} + ' <small> ppm</small>'">22
+                    <small>ppm</small>
                   </h3>
                 </div>
                 <div class="card-footer">
-                  <div class="stats">
+                  <div class="stats" th:if="*{getICo2AlarmFlag2()== 0}">
                     <i class="material-icons">check_circle</i>
                     无报警
+                  </div>
+                  <div class="stats" th:if="*{getICo2AlarmFlag2()== 1}">
+                    <i class="material-icons text-danger">warning</i>
+                    低报警
+                  </div>
+                  <div class="stats" th:if="*{getICo2AlarmFlag2()== 2}">
+                    <i class="material-icons text-danger">error</i>
+                    高报警
                   </div>
                 </div>
               </div>
@@ -309,14 +421,22 @@
                     <i class="material-icons">border_top</i>
                   </div>
                   <p class="card-category">土壤EC值1</p>
-                  <h3 class="card-title">22
-                    <small>%</small>
+                  <h3 class="card-title" th:utext="*{#numbers.formatDecimal(getFEC1(),1,2)} + ' <small> mS/cm</small>'">22
+                    <small>mS/cm</small>
                   </h3>
                 </div>
                 <div class="card-footer">
-                  <div class="stats">
+                  <div class="stats" th:if="*{getIECAlarmFlag1()== 0}">
                     <i class="material-icons">check_circle</i>
                     无报警
+                  </div>
+                  <div class="stats" th:if="*{getIECAlarmFlag1()== 1}">
+                    <i class="material-icons text-danger">warning</i>
+                    低报警
+                  </div>
+                  <div class="stats" th:if="*{getIECAlarmFlag1()== 2}">
+                    <i class="material-icons text-danger">error</i>
+                    高报警
                   </div>
                 </div>
               </div>
@@ -328,14 +448,22 @@
                     <i class="material-icons">border_top</i>
                   </div>
                   <p class="card-category">土壤EC值2</p>
-                  <h3 class="card-title">23
-                    <small>%</small>
+                  <h3 class="card-title" th:utext="*{#numbers.formatDecimal(getFEC2(),1,2)} + ' <small> mS/cm</small>'">23
+                    <small>mS/cm</small>
                   </h3>
                 </div>
                 <div class="card-footer">
-                  <div class="stats">
+                  <div class="stats" th:if="*{getIECAlarmFlag2()== 0}">
                     <i class="material-icons">check_circle</i>
                     无报警
+                  </div>
+                  <div class="stats" th:if="*{getIECAlarmFlag2()== 1}">
+                    <i class="material-icons text-danger">warning</i>
+                    低报警
+                  </div>
+                  <div class="stats" th:if="*{getIECAlarmFlag2()== 2}">
+                    <i class="material-icons text-danger">error</i>
+                    高报警
                   </div>
                 </div>
               </div>
@@ -347,14 +475,22 @@
                     <i class="material-icons">border_top</i>
                   </div>
                   <p class="card-category">土壤EC值3</p>
-                  <h3 class="card-title">23
+                  <h3 class="card-title" th:utext="*{#numbers.formatDecimal(getFEC3(),1,2)} + ' <small> mS/cm</small>'">23
                     <small>%</small>
                   </h3>
                 </div>
                 <div class="card-footer">
-                  <div class="stats">
+                  <div class="stats" th:if="*{getIECAlarmFlag3()== 0}">
                     <i class="material-icons">check_circle</i>
                     无报警
+                  </div>
+                  <div class="stats" th:if="*{getIECAlarmFlag3()== 1}">
+                    <i class="material-icons text-danger">warning</i>
+                    低报警
+                  </div>
+                  <div class="stats" th:if="*{getIECAlarmFlag3()== 2}">
+                    <i class="material-icons text-danger">error</i>
+                    高报警
                   </div>
                 </div>
               </div>
@@ -366,14 +502,22 @@
                     <i class="material-icons">blur_on</i>
                   </div>
                   <p class="card-category">土壤PH值1</p>
-                  <h3 class="card-title">7
+                  <h3 class="card-title" th:utext="*{#numbers.formatDecimal(getFPH1(),1,1)}">7
                     <!--                    <small>%</small>-->
                   </h3>
                 </div>
                 <div class="card-footer">
-                  <div class="stats">
+                  <div class="stats" th:if="*{getIPHAlarmFlag1()== 0}">
                     <i class="material-icons">check_circle</i>
                     无报警
+                  </div>
+                  <div class="stats" th:if="*{getIPHAlarmFlag1()== 1}">
+                    <i class="material-icons text-danger">warning</i>
+                    低报警
+                  </div>
+                  <div class="stats" th:if="*{getIPHAlarmFlag1()== 2}">
+                    <i class="material-icons text-danger">error</i>
+                    高报警
                   </div>
                 </div>
               </div>
@@ -385,13 +529,21 @@
                     <i class="material-icons">blur_on</i>
                   </div>
                   <p class="card-category">土壤PH值2</p>
-                  <h3 class="card-title">7
+                  <h3 class="card-title" th:utext="*{#numbers.formatDecimal(getFPH2(),1,1)}">7
                   </h3>
                 </div>
                 <div class="card-footer">
-                  <div class="stats">
+                  <div class="stats" th:if="*{getIPHAlarmFlag2()== 0}">
                     <i class="material-icons">check_circle</i>
                     无报警
+                  </div>
+                  <div class="stats" th:if="*{getIPHAlarmFlag2()== 1}">
+                    <i class="material-icons text-danger">warning</i>
+                    低报警
+                  </div>
+                  <div class="stats" th:if="*{getIPHAlarmFlag2()== 2}">
+                    <i class="material-icons text-danger">error</i>
+                    高报警
                   </div>
                 </div>
               </div>
@@ -403,13 +555,21 @@
                     <i class="material-icons">blur_on</i>
                   </div>
                   <p class="card-category">土壤PH值3</p>
-                  <h3 class="card-title">7
+                  <h3 class="card-title" th:utext="*{#numbers.formatDecimal(getFPH3(),1,1)}">7
                   </h3>
                 </div>
                 <div class="card-footer">
-                  <div class="stats">
+                  <div class="stats" th:if="*{getIPHAlarmFlag3()== 0}">
                     <i class="material-icons">check_circle</i>
                     无报警
+                  </div>
+                  <div class="stats" th:if="*{getIPHAlarmFlag3()== 1}">
+                    <i class="material-icons text-danger">warning</i>
+                    低报警
+                  </div>
+                  <div class="stats" th:if="*{getIPHAlarmFlag3()== 2}">
+                    <i class="material-icons text-danger">error</i>
+                    高报警
                   </div>
                 </div>
               </div>
@@ -421,13 +581,21 @@
                     <i class="material-icons">brightness_5</i>
                   </div>
                   <p class="card-category">光照强度1</p>
-                  <h3 class="card-title">7
+                  <h3 class="card-title" th:utext="*{#numbers.formatDecimal(getFLight1(),1,0)} + ' <small> Lux</small>'">7
                   </h3>
                 </div>
                 <div class="card-footer">
-                  <div class="stats">
+                  <div class="stats" th:if="*{getILightAlarmFlag1()== 0}">
                     <i class="material-icons">check_circle</i>
                     无报警
+                  </div>
+                  <div class="stats" th:if="*{getILightAlarmFlag1()== 1}">
+                    <i class="material-icons text-danger">warning</i>
+                    低报警
+                  </div>
+                  <div class="stats" th:if="*{getILightAlarmFlag1()== 2}">
+                    <i class="material-icons text-danger">error</i>
+                    高报警
                   </div>
                 </div>
               </div>
@@ -439,35 +607,43 @@
                     <i class="material-icons">brightness_5</i>
                   </div>
                   <p class="card-category">光照强度2</p>
-                  <h3 class="card-title">7
+                  <h3 class="card-title" th:utext="*{#numbers.formatDecimal(getFLight2(),1,0)} + ' <small> Lux</small>'">7
                   </h3>
                 </div>
                 <div class="card-footer">
-                  <div class="stats">
+                  <div class="stats" th:if="*{getILightAlarmFlag2()== 0}">
                     <i class="material-icons">check_circle</i>
                     无报警
+                  </div>
+                  <div class="stats" th:if="*{getILightAlarmFlag2()== 1}">
+                    <i class="material-icons text-danger">warning</i>
+                    低报警
+                  </div>
+                  <div class="stats" th:if="*{getILightAlarmFlag2()== 2}">
+                    <i class="material-icons text-danger">error</i>
+                    高报警
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="card card-stats">
-                <div class="card-header card-header-info card-header-icon">
-                  <div class="card-icon">
-                    <i class="material-icons">gradient</i>
-                  </div>
-                  <p class="card-category">水池水位高度</p>
-                  <h3 class="card-title">7
-                  </h3>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons">check_circle</i>
-                    无报警
-                  </div>
-                </div>
-              </div>
-            </div>
+            <!--<div class="col-lg-3 col-md-6 col-sm-6">-->
+            <!--  <div class="card card-stats">-->
+            <!--    <div class="card-header card-header-info card-header-icon">-->
+            <!--      <div class="card-icon">-->
+            <!--        <i class="material-icons">gradient</i>-->
+            <!--      </div>-->
+            <!--      <p class="card-category">水池水位高度</p>-->
+            <!--      <h3 class="card-title">7-->
+            <!--      </h3>-->
+            <!--    </div>-->
+            <!--    <div class="card-footer">-->
+            <!--      <div class="stats">-->
+            <!--        <i class="material-icons">check_circle</i>-->
+            <!--        无报警-->
+            <!--      </div>-->
+            <!--    </div>-->
+            <!--  </div>-->
+            <!--</div>-->
             <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card card-stats">
                 <div class="card-header card-header-primary card-header-icon">
@@ -475,7 +651,7 @@
                     <i class="material-icons">storage</i>
                   </div>
                   <p class="card-category">数据更新时间</p>
-                  <h3 class="card-title">2019-06-13 16:05:57
+                  <h3 class="card-title" th:text="*{getVcTime()}">2019-06-13 16:05:57
                   </h3>
                   <br>
                 </div>
@@ -553,67 +729,97 @@
                 <div class="card-body">
                   <div class="tab-content">
                     <div class="tab-pane active" id="profile">
-                      <table class="table table-hover">
+                      <table class="table table-hover" th:object="${motoInfo}">
                         <tbody>
                         <tr>
                           <td class="td-actions text-left">
                             <button type="button" rel="tooltip" title="已开启"
-                                    class="btn btn-success btn-link btn-sm">
+                                    class="btn btn-success btn-link btn-sm" th:if="*{getIWindowStatus1()==0}">
+                              <i class="material-icons">lens</i>
+                            </button>
+                            <button type="button" rel="tooltip" title="已关闭"
+                                    class="btn btn-danger btn-link btn-sm" th:if="*{getIWindowStatus1()==1}">
                               <i class="material-icons">lens</i>
                             </button>
                           </td>
                           <td>1# 天窗状态</td>
-                          <td>已开启</td>
+                          <td th:if="*{getIWindowStatus1()==0}">已开启</td>
+                          <td th:if="*{getIWindowStatus1()==1}">已关闭</td>
                         </tr>
                         <tr>
                           <td class="td-actions text-left">
                             <button type="button" rel="tooltip" title="已开启"
-                                    class="btn btn-success btn-link btn-sm">
+                                    class="btn btn-success btn-link btn-sm" th:if="*{getIWindowStatus2()==0}">
+                              <i class="material-icons">lens</i>
+                            </button>
+                            <button type="button" rel="tooltip" title="已关闭"
+                                    class="btn btn-danger btn-link btn-sm" th:if="*{getIWindowStatus2()==1}">
                               <i class="material-icons">lens</i>
                             </button>
                           </td>
                           <td>2# 天窗状态</td>
-                          <td class="td-actions text-right">已开启</td>
+                          <td th:if="*{getIWindowStatus2()==0}">已开启</td>
+                          <td th:if="*{getIWindowStatus2()==1}">已关闭</td>
                         </tr>
                         <tr>
                           <td class="td-actions text-left">
+                            <button type="button" rel="tooltip" title="已开启"
+                                    class="btn btn-success btn-link btn-sm" th:if="*{getILeftWinStatus1()==0}">
+                              <i class="material-icons">lens</i>
+                            </button>
                             <button type="button" rel="tooltip" title="已关闭"
-                                    class="btn btn-danger btn-link btn-sm">
+                                    class="btn btn-danger btn-link btn-sm" th:if="*{getILeftWinStatus1()==1}">
                               <i class="material-icons">lens</i>
                             </button>
                           </td>
                           <td>侧窗状态</td>
-                          <td class="td-actions text-right">已关闭</td>
+                          <td th:if="*{getILeftWinStatus1()==0}">已开启</td>
+                          <td th:if="*{getILeftWinStatus1()==1}">已关闭</td>
                         </tr>
                         <tr>
                           <td class="td-actions text-left">
-                            <button type="button" rel="tooltip" title="已打开"
-                                    class="btn btn-success btn-link btn-sm">
+                            <button type="button" rel="tooltip" title="已开启"
+                                    class="btn btn-success btn-link btn-sm" th:if="*{getITopScreenStatus1()==0}">
+                              <i class="material-icons">lens</i>
+                            </button>
+                            <button type="button" rel="tooltip" title="已关闭"
+                                    class="btn btn-danger btn-link btn-sm" th:if="*{getITopScreenStatus1()==1}">
                               <i class="material-icons">lens</i>
                             </button>
                           </td>
                           <td>1# 顶帘状态</td>
-                          <td class="td-actions text-right">已关闭</td>
+                          <td th:if="*{getITopScreenStatus1()==0}">已开启</td>
+                          <td th:if="*{getITopScreenStatus1()==1}">已关闭</td>
                         </tr>
                         <tr>
                           <td class="td-actions text-left">
-                            <button type="button" rel="tooltip" title="已打开"
-                                    class="btn btn-success btn-link btn-sm">
+                            <button type="button" rel="tooltip" title="已开启"
+                                    class="btn btn-success btn-link btn-sm" th:if="*{getITopScreenStatus2()==0}">
+                              <i class="material-icons">lens</i>
+                            </button>
+                            <button type="button" rel="tooltip" title="已关闭"
+                                    class="btn btn-danger btn-link btn-sm" th:if="*{getITopScreenStatus2()==1}">
                               <i class="material-icons">lens</i>
                             </button>
                           </td>
                           <td>2# 顶帘状态</td>
-                          <td class="td-actions text-right">已关闭</td>
+                          <td th:if="*{getITopScreenStatus2()==0}">已开启</td>
+                          <td th:if="*{getITopScreenStatus2()==1}">已关闭</td>
                         </tr>
                         <tr>
                           <td class="td-actions text-left">
+                            <button type="button" rel="tooltip" title="已开启"
+                                    class="btn btn-success btn-link btn-sm" th:if="*{getITopScreenStatus3()==0}">
+                              <i class="material-icons">lens</i>
+                            </button>
                             <button type="button" rel="tooltip" title="已关闭"
-                                    class="btn btn-danger btn-link btn-sm">
+                                    class="btn btn-danger btn-link btn-sm" th:if="*{getITopScreenStatus3()==1}">
                               <i class="material-icons">lens</i>
                             </button>
                           </td>
                           <td>3# 顶帘状态</td>
-                          <td class="td-actions text-right">已关闭</td>
+                          <td th:if="*{getITopScreenStatus3()==0}">已开启</td>
+                          <td th:if="*{getITopScreenStatus3()==1}">已关闭</td>
                         </tr>
                         <tr>
                           <td class="td-actions text-left">

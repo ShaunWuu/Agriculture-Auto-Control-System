@@ -48,7 +48,7 @@ public class QuartzConfiguration {
         CronTriggerFactoryBean trigger = new CronTriggerFactoryBean();
         trigger.setJobDetail(jobDetail.getObject());
         // 3 秒执行一次
-        trigger.setCronExpression("0/3 * * * * ? *");
+        trigger.setCronExpression(cronExpression);
         // trigger的name
         trigger.setName("auto-monitor");
         return trigger;
