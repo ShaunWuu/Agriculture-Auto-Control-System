@@ -6,8 +6,6 @@ var co2 = document.getElementById("co2");
 var ec = document.getElementById("ec");
 var ph = document.getElementById("ph");
 var light = document.getElementById("light");
-// var waterLevel = document.getElementById("waterLevel");
-// var monitorInterval = document.getElementById("monitorInterval");
 
 noUiSlider.create(airTemp, {
     start: [16, 25],
@@ -385,4 +383,95 @@ highLight.addEventListener('change', function () {
 //
 // monitorIntervalVal.addEventListener('change', function () {
 //     monitorInterval.noUiSlider.set(monitorIntervalVal.value)
+// });
+
+/////////////////////////////////////////////// 封装 ///////////////////////////////////////////////
+
+function createSlider(slider){
+
+    for (var i = 0, len = slider.length; i < len ; i++){
+        noUiSlider.create(slider[i], {
+            start: [slider[i].high, slider[i].low],
+            connect: slider,
+            step: slider[i].step,
+            range: {
+                'min': slider[i].min,
+                'max': slider[i].max
+            },
+            ariaFormat: wNumb({
+                decimals: slider[i].decimals
+            }),
+            format: wNumb({
+                decimals: slider[i].decimals
+            })
+        });
+
+        slider[i].setAttribute('value', values[0]);
+        slider[i].value = values[0];
+        slider[i].setAttribute('value', values[1]);
+        slider[i].value = values[1];
+    }
+
+
+    // noUiSlider.create(this, {
+    //     start: [this.high, this.low],
+    //     connect: true,
+    //     step: this.step,
+    //     range: {
+    //         'min': this.min,
+    //         'max': this.max
+    //     },
+    //     ariaFormat: wNumb({
+    //         decimals: 0
+    //     }),
+    //     format: wNumb({
+    //         decimals: 0
+    //     })
+    // });
+    //
+    // this.setAttribute('value', values[0]);
+    // this.value = values[0];
+    // this.setAttribute('value', values[1]);
+    // this.value = values[1];
+}
+
+// 参考步骤
+
+// var airTemp = document.getElementById("airTemp");
+//
+// noUiSlider.create(airTemp, {
+//     start: [16, 25],
+//     connect: true,
+//     step: 1,
+//     range: {
+//         'min': 0,
+//         'max': 50
+//     },
+//     ariaFormat: wNumb({
+//         decimals: 0
+//     })
+//     ,
+//     format: wNumb({
+//         decimals: 0
+//     })
+// });
+//
+// var lowAirTemp = document.getElementById('lowAirTemp');
+// var highAirTemp = document.getElementById('highAirTemp');
+//
+// airTemp.noUiSlider.on('update', function (values) {
+//     document.getElementById('lowAirTemp').setAttribute('value', values[0]);
+//     document.getElementById('lowAirTemp').value = values[0];
+//     document.getElementById('highAirTemp').setAttribute('value', values[1]);
+//     document.getElementById('highAirTemp').value = values[1];
+// });
+//
+// lowAirTemp.addEventListener('change', function () {
+//     var getter = airTemp.noUiSlider.get();
+//     airTemp.noUiSlider.set([lowAirTemp.value,getter[1]])
+// });
+//
+// highAirTemp.addEventListener('change', function () {
+//     var getter = airTemp.noUiSlider.get();
+//     airTemp.noUiSlider.set([getter[0], highAirTemp.value])
 // });

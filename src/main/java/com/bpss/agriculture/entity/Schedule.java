@@ -8,7 +8,7 @@ import lombok.Data;
  * @author Rocky Wu
  */
 @Data
-public class ScheduleVo {
+public class Schedule {
 
     private int lowAirTemp;
     private int highAirTemp;
@@ -26,6 +26,6 @@ public class ScheduleVo {
     private float highPH;
     private int lowLight;
     private int highLight;
-    private CronVo cronVo;
+    private int cid;
 
 }

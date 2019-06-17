@@ -1,6 +1,5 @@
 package com.bpss.agriculture.mapper;
 
-import com.bpss.agriculture.entity.ScheduleVo;
 import com.bpss.agriculture.entity.GreenHouseInfo;
 import com.bpss.agriculture.entity.MotoCmdInfo;
 import com.bpss.agriculture.entity.MotoInfo;
@@ -59,12 +58,5 @@ public interface AgricultureMapper {
      */
     @Select("SELECT * FROM tMotoInfo")
     MotoInfo getMotoInfo();
-
-    /**
-     * 获取自动控制策略
-     * @return
-     */
-    @Select("SELECT * FROM tSchedule WHERE id = 1")
-    ScheduleVo getScheduleVo();
 
 }

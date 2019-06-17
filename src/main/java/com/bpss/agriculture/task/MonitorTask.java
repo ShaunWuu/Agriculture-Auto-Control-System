@@ -22,7 +22,7 @@ public class MonitorTask implements SchedulingConfigurer {
     private String cron;
 
     private String getCronVo(){
-        CronVo cronVo = scheduleMapper.getCron(1);
+        CronVo cronVo = scheduleMapper.getCron(2);
         return cronVo.getCron();
     }
 
@@ -31,7 +31,7 @@ public class MonitorTask implements SchedulingConfigurer {
 
         scheduledTaskRegistrar.addTriggerTask(() -> {
             // 查询数据库是否有超过范围值的业务代码
-            System.out.println("查询数据库是否有超过范围的值");
+            System.out.println("查询数据库并进行业务处理");
         }, triggerContext -> {
             cron = getCronVo();
             CronTrigger trigger = new CronTrigger(cron);

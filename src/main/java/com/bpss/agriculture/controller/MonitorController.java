@@ -1,9 +1,8 @@
 package com.bpss.agriculture.controller;
 
-import com.bpss.agriculture.entity.GreenHouseInfo;
-import com.bpss.agriculture.entity.MotoCmdInfo;
-import com.bpss.agriculture.entity.MotoInfo;
+import com.bpss.agriculture.entity.*;
 import com.bpss.agriculture.service.AgricultureService;
+import com.bpss.agriculture.service.ScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +18,9 @@ public class MonitorController {
 
     @Autowired
     AgricultureService agricultureService;
+
+    @Autowired
+    ScheduleService scheduleService;
 
     @RequestMapping(value = {"/", "/dashboard"})
     public String monitor(Model model){
@@ -37,7 +39,16 @@ public class MonitorController {
     }
 
     @RequestMapping("/config")
-    public String config(){
+    public String config(Model model){
+        List<CronVo> cronList = scheduleService.getAllCron();
+        Schedule schedule = scheduleService.getSchedule(1);
+        int cid = schedule.getCid();
+        String cronNote = scheduleService.getCron(cid).getNote();
+
+        model.addAttribute(cronList);
+        model.addAttribute(schedule);
+        model.addAttribute(cronNote);
+
         return "config";
     }
 

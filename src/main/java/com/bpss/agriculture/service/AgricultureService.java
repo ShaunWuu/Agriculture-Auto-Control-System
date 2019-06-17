@@ -3,7 +3,6 @@ package com.bpss.agriculture.service;
 import com.bpss.agriculture.entity.GreenHouseInfo;
 import com.bpss.agriculture.entity.MotoCmdInfo;
 import com.bpss.agriculture.entity.MotoInfo;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
