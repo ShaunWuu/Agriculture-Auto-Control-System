@@ -12,13 +12,16 @@ import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 
 /**
  * @author Rocky Wu
+ *
+ * Quartz 配置
+ *
  */
 @Configuration
 public class QuartzConfiguration {
 
     @Setter
     @Getter
-    private static String cronExpression = "0/3 * * * * ? *";
+    private static String cronExpression = "0/50 * * * * ? *";
 
     /**
      * 配置定时任务
@@ -38,7 +41,7 @@ public class QuartzConfiguration {
         jobDetail.setGroup("auto");
         // 执行的实体类对应的对象
         jobDetail.setTargetObject(task);
-        // 需要执行的 monitor()
+        // 需要执行的 monitor() 方法名
         jobDetail.setTargetMethod("monitor");
         return jobDetail;
     }
@@ -60,7 +63,7 @@ public class QuartzConfiguration {
         // 用于quartz集群,QuartzScheduler 启动时更新己存在的Job
         // bean.setOverwriteExistingJobs(true);
         // 延时启动，应用启动1秒后
-        bean.setStartupDelay(1);
+        bean.setStartupDelay(0);
         // 注册触发器
         bean.setTriggers(cronJobTrigger);
         return bean;

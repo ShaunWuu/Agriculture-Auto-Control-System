@@ -717,11 +717,11 @@
           <!--    </div>-->
           <!--  </div>-->
           <!--</div>-->
-          <!-- 设备状态 -->
           <div class="row">
             <div class="col-lg-6 col-md-12">
               <div class="card">
                 <div class="card-header card-header-tabs card-header-primary">
+                  <!-- 设备状态 -->
                   <h4 class="card-title">设备状态</h4>
                   <p class="card-category">点击设备左侧指示灯可手动开关设备</p>
                   <p class="card-category">数据更新时间：2019-06-13 16:43:59</p>
@@ -823,115 +823,154 @@
                         </tr>
                         <tr>
                           <td class="td-actions text-left">
+                            <button type="button" rel="tooltip" title="已开启"
+                                    class="btn btn-success btn-link btn-sm" th:if="*{getILeftScreenStatus1()==0}">
+                              <i class="material-icons">lens</i>
+                            </button>
                             <button type="button" rel="tooltip" title="已关闭"
-                                    class="btn btn-danger btn-link btn-sm">
+                                    class="btn btn-danger btn-link btn-sm" th:if="*{getILeftScreenStatus1()==1}">
                               <i class="material-icons">lens</i>
                             </button>
                           </td>
                           <td>侧帘状态</td>
-                          <td class="td-actions text-right">已关闭</td>
+                          <td th:if="*{getILeftScreenStatus1()==0}">已开启</td>
+                          <td th:if="*{getILeftScreenStatus1()==1}">已关闭</td>
                         </tr>
                         <tr>
                           <td class="td-actions text-left">
-                            <button type="button" rel="tooltip" title="已关闭"
-                                    class="btn btn-danger btn-link btn-sm">
+                            <button type="button" rel="tooltip" title="已开启"
+                                    class="btn btn-success btn-link btn-sm" th:if="*{getIWindMotoStatus1()==0}">
                               <i class="material-icons">lens</i>
                             </button>
-                          </td>
-                          <td>侧帘状态</td>
-                          <td class="td-actions text-right">已关闭</td>
-                        </tr>
-                        <tr>
-                          <td class="td-actions text-left">
                             <button type="button" rel="tooltip" title="已关闭"
-                                    class="btn btn-danger btn-link btn-sm">
+                                    class="btn btn-danger btn-link btn-sm" th:if="*{getIWindMotoStatus1()==1}">
                               <i class="material-icons">lens</i>
                             </button>
                           </td>
                           <td>1#通风机状态</td>
-                          <td class="td-actions text-right">已关闭</td>
+                          <td th:if="*{getIWindMotoStatus1()==0}">已开启</td>
+                          <td th:if="*{getIWindMotoStatus1()==1}">已关闭</td>
                         </tr>
                         <tr>
                           <td class="td-actions text-left">
+                            <button type="button" rel="tooltip" title="已开启"
+                                    class="btn btn-success btn-link btn-sm" th:if="*{getIWindMotoStatus2()==0}">
+                              <i class="material-icons">lens</i>
+                            </button>
                             <button type="button" rel="tooltip" title="已关闭"
-                                    class="btn btn-danger btn-link btn-sm">
+                                    class="btn btn-danger btn-link btn-sm" th:if="*{getIWindMotoStatus2()==1}">
                               <i class="material-icons">lens</i>
                             </button>
                           </td>
-                          <td>2# 通风机状态</td>
-                          <td class="td-actions text-right">已关闭</td>
+                          <td>1#通风机状态</td>
+                          <td th:if="*{getIWindMotoStatus2()==0}">已开启</td>
+                          <td th:if="*{getIWindMotoStatus2()==1}">已关闭</td>
                         </tr>
                         <tr>
                           <td class="td-actions text-left">
+                            <button type="button" rel="tooltip" title="已开启"
+                                    class="btn btn-success btn-link btn-sm" th:if="*{getIHotMotoStatus1()==0}">
+                              <i class="material-icons">lens</i>
+                            </button>
                             <button type="button" rel="tooltip" title="已关闭"
-                                    class="btn btn-danger btn-link btn-sm">
+                                    class="btn btn-danger btn-link btn-sm" th:if="*{getIHotMotoStatus1()==1}">
                               <i class="material-icons">lens</i>
                             </button>
                           </td>
                           <td>1# 暖风机状态</td>
-                          <td class="td-actions text-right">已关闭</td>
+                          <td th:if="*{getIHotMotoStatus1()==0}">已开启</td>
+                          <td th:if="*{getIHotMotoStatus1()==1}">已关闭</td>
                         </tr>
                         <tr>
                           <td class="td-actions text-left">
+                            <button type="button" rel="tooltip" title="已开启"
+                                    class="btn btn-success btn-link btn-sm" th:if="*{getIHotMotoStatus2()==0}">
+                              <i class="material-icons">lens</i>
+                            </button>
                             <button type="button" rel="tooltip" title="已关闭"
-                                    class="btn btn-danger btn-link btn-sm">
+                                    class="btn btn-danger btn-link btn-sm" th:if="*{getIHotMotoStatus2()==1}">
                               <i class="material-icons">lens</i>
                             </button>
                           </td>
                           <td>2# 暖风机状态</td>
-                          <td class="td-actions text-right">已关闭</td>
+                          <td th:if="*{getIHotMotoStatus2()==0}">已开启</td>
+                          <td th:if="*{getIHotMotoStatus2()==1}">已关闭</td>
                         </tr>
                         <tr>
                           <td class="td-actions text-left">
+                            <button type="button" rel="tooltip" title="已开启"
+                                    class="btn btn-success btn-link btn-sm" th:if="*{getIWetMotoStatus1()==0}">
+                              <i class="material-icons">lens</i>
+                            </button>
                             <button type="button" rel="tooltip" title="已关闭"
-                                    class="btn btn-danger btn-link btn-sm">
+                                    class="btn btn-danger btn-link btn-sm" th:if="*{getIWetMotoStatus1()==1}">
                               <i class="material-icons">lens</i>
                             </button>
                           </td>
                           <td>喷雾器状态</td>
-                          <td class="td-actions text-right">已关闭</td>
+                          <td th:if="*{getIWetMotoStatus1()==0}">已开启</td>
+                          <td th:if="*{getIWetMotoStatus1()==1}">已关闭</td>
                         </tr>
                         <tr>
                           <td class="td-actions text-left">
+                            <button type="button" rel="tooltip" title="已开启"
+                                    class="btn btn-success btn-link btn-sm" th:if="*{getIWaterMotoStatus1()==0}">
+                              <i class="material-icons">lens</i>
+                            </button>
                             <button type="button" rel="tooltip" title="已关闭"
-                                    class="btn btn-danger btn-link btn-sm">
+                                    class="btn btn-danger btn-link btn-sm" th:if="*{getIWaterMotoStatus1()==1}">
                               <i class="material-icons">lens</i>
                             </button>
                           </td>
                           <td>灌溉出水阀状态</td>
-                          <td class="td-actions text-right">已关闭</td>
+                          <td th:if="*{getIWaterMotoStatus1()==0}">已开启</td>
+                          <td th:if="*{getIWaterMotoStatus1()==1}">已关闭</td>
                         </tr>
                         <tr>
                           <td class="td-actions text-left">
+                            <button type="button" rel="tooltip" title="已开启"
+                                    class="btn btn-success btn-link btn-sm" th:if="*{getILightStatus1()==0}">
+                              <i class="material-icons">lens</i>
+                            </button>
                             <button type="button" rel="tooltip" title="已关闭"
-                                    class="btn btn-danger btn-link btn-sm">
+                                    class="btn btn-danger btn-link btn-sm" th:if="*{getILightStatus1()==1}">
                               <i class="material-icons">lens</i>
                             </button>
                           </td>
                           <td>补光灯1状态</td>
-                          <td class="td-actions text-right">已关闭</td>
+                          <td th:if="*{getILightStatus1()==0}">已开启</td>
+                          <td th:if="*{getILightStatus1()==1}">已关闭</td>
                         </tr>
                         <tr>
                           <td class="td-actions text-left">
+                            <button type="button" rel="tooltip" title="已开启"
+                                    class="btn btn-success btn-link btn-sm" th:if="*{getILightStatus2()==0}">
+                              <i class="material-icons">lens</i>
+                            </button>
                             <button type="button" rel="tooltip" title="已关闭"
-                                    class="btn btn-danger btn-link btn-sm">
+                                    class="btn btn-danger btn-link btn-sm" th:if="*{getILightStatus2()==1}">
                               <i class="material-icons">lens</i>
                             </button>
                           </td>
                           <td>补光灯2状态</td>
-                          <td class="td-actions text-right">已关闭</td>
+                          <td th:if="*{getILightStatus2()==0}">已开启</td>
+                          <td th:if="*{getILightStatus2()==1}">已关闭</td>
                         </tr>
                         <tr>
                           <td class="td-actions text-left">
+                            <button type="button" rel="tooltip" title="已开启"
+                                    class="btn btn-success btn-link btn-sm" th:if="*{getILightStatus3()==0}">
+                              <i class="material-icons">lens</i>
+                            </button>
                             <button type="button" rel="tooltip" title="已关闭"
-                                    class="btn btn-danger btn-link btn-sm">
+                                    class="btn btn-danger btn-link btn-sm" th:if="*{getILightStatus3()==1}">
                               <i class="material-icons">lens</i>
                             </button>
                           </td>
                           <td>补光灯3状态</td>
-                          <td class="td-actions text-right">已关闭</td>
+                          <td th:if="*{getILightStatus3()==0}">已开启</td>
+                          <td th:if="*{getILightStatus3()==1}">已关闭</td>
                         </tr>
-
                         </tbody>
                       </table>
                     </div>
@@ -948,77 +987,21 @@
                 <div class="card-body table-responsive">
                   <table class="table table-hover">
                     <thead class="text-warning">
-                    <th>操作员ID</th>
-                    <th>设备名称</th>
-                    <th>操作</th>
-                    <th>处理结果</th>
-                    <th>处理时间</th>
+                      <th>设备名称</th>
+                      <th>操作</th>
+                      <th>处理结果</th>
+                      <th>处理时间</th>
                     </thead>
-                    <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>暖风机</td>
-                      <td>打开</td>
-                      <td>成功</td>
-                      <td>2019-06-13 16:48:32</td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>1# 天窗</td>
-                      <td>打开</td>
-                      <td>成功</td>
-                      <td>2019-06-13 16:48:32</td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td>2# 天窗</td>
-                      <td>打开</td>
-                      <td>成功</td>
-                      <td>2019-06-13 16:48:33</td>
-                    </tr>
-                    <tr>
-                      <td>4</td>
-                      <td>1# 顶帘</td>
-                      <td>打开</td>
-                      <td>成功</td>
-                      <td>2019-06-13 16:48:34</td>
-                    </tr>
-                    <tr>
-                      <td>4</td>
-                      <td>1# 顶帘</td>
-                      <td>打开</td>
-                      <td>成功</td>
-                      <td>2019-06-13 16:48:34</td>
-                    </tr>
-                    <tr>
-                      <td>4</td>
-                      <td>1# 顶帘</td>
-                      <td>打开</td>
-                      <td>成功</td>
-                      <td>2019-06-13 16:48:34</td>
-                    </tr>
-                    <tr>
-                      <td>4</td>
-                      <td>1# 顶帘</td>
-                      <td>打开</td>
-                      <td>成功</td>
-                      <td>2019-06-13 16:48:34</td>
-                    </tr>
-                    <tr>
-                      <td>4</td>
-                      <td>1# 顶帘</td>
-                      <td>打开</td>
-                      <td>成功</td>
-                      <td>2019-06-13 16:48:34</td>
-                    </tr>
-                    <tr>
-                      <td>4</td>
-                      <td>1# 顶帘</td>
-                      <td>打开</td>
-                      <td>成功</td>
-                      <td>2019-06-13 16:48:34</td>
-                    </tr>
-
+                    <tbody th:each="info : ${latestMotoCmdInfo}">
+                      <tr>
+                        <!--<td th:text="${info.getIOperatorId()}">1</td>-->
+                        <td th:text="${info.getVcMotoName()}">暖风机</td>
+                        <td th:text="${info.getVcActName()}">打开</td>
+                        <td th:if="${info.getICmdStatus()==0}">等待处理</td>
+                        <td th:if="${info.getICmdStatus()==1}">处理成功</td>
+                        <td th:if="${info.getICmdStatus()==2}">处理失败</td>
+                        <td th:text="${info.getVcTime()}">2019-06-13 16:48:32</td>
+                      </tr>
                     </tbody>
                   </table>
                 </div>

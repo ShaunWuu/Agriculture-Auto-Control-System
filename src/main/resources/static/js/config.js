@@ -7,7 +7,7 @@ var ec = document.getElementById("ec");
 var ph = document.getElementById("ph");
 var light = document.getElementById("light");
 // var waterLevel = document.getElementById("waterLevel");
-var monitorInterval = document.getElementById("monitorInterval");
+// var monitorInterval = document.getElementById("monitorInterval");
 
 noUiSlider.create(airTemp, {
     start: [16, 25],
@@ -22,7 +22,7 @@ noUiSlider.create(airTemp, {
     })
     ,
     format: wNumb({
-        decimals: 0,
+        decimals: 0
     })
 });
 
@@ -39,7 +39,7 @@ noUiSlider.create(airWater, {
     })
     ,
     format: wNumb({
-        decimals: 0,
+        decimals: 0
     })
 });
 
@@ -56,7 +56,7 @@ noUiSlider.create(earthTemp, {
     })
     ,
     format: wNumb({
-        decimals: 0,
+        decimals: 0
     })
 });
 
@@ -73,7 +73,7 @@ noUiSlider.create(earthWater, {
     })
     ,
     format: wNumb({
-        decimals: 0,
+        decimals: 0
     })
 });
 
@@ -90,7 +90,7 @@ noUiSlider.create(co2, {
     })
     ,
     format: wNumb({
-        decimals: 0,
+        decimals: 0
     })
 });
 
@@ -162,21 +162,21 @@ noUiSlider.create(light, {
 //     })
 // });
 
-noUiSlider.create(monitorInterval, {
-    start: [3],
-    step: 1,
-    range: {
-        'min': 3,
-        'max': 300
-    },
-    ariaFormat: wNumb({
-        decimals: 0
-    })
-    ,
-    format: wNumb({
-        decimals: 0
-    })
-});
+// noUiSlider.create(monitorInterval, {
+//     start: [3],
+//     step: 1,
+//     range: {
+//         'min': 3,
+//         'max': 300
+//     },
+//     ariaFormat: wNumb({
+//         decimals: 0
+//     })
+//     ,
+//     format: wNumb({
+//         decimals: 0
+//     })
+// });
 
 var lowAirTemp = document.getElementById('lowAirTemp');
 var highAirTemp = document.getElementById('highAirTemp');
@@ -205,7 +205,7 @@ var highLight = document.getElementById('highLight');
 // var lowWaterLevel = document.getElementById('lowWaterLevel');
 // var highWaterLevel = document.getElementById('highWaterLevel');
 
-var monitorIntervalVal = document.getElementById("monitorIntervalVal");
+// var monitorIntervalVal = document.getElementById("monitorIntervalVal");
 
 airTemp.noUiSlider.on('update', function (values) {
     document.getElementById('lowAirTemp').setAttribute('value', values[0]);
@@ -378,11 +378,11 @@ highLight.addEventListener('change', function () {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-monitorInterval.noUiSlider.on('update', function (values) {
-    document.getElementById('monitorIntervalVal').setAttribute('value', values[0]);
-    document.getElementById("monitorIntervalVal").value = values[0];
-});
-
-monitorIntervalVal.addEventListener('change', function () {
-    monitorInterval.noUiSlider.set(monitorIntervalVal.value)
-});
+// monitorInterval.noUiSlider.on('update', function (values) {
+//     document.getElementById('monitorIntervalVal').setAttribute('value', values[0]);
+//     document.getElementById("monitorIntervalVal").value = values[0];
+// });
+//
+// monitorIntervalVal.addEventListener('change', function () {
+//     monitorInterval.noUiSlider.set(monitorIntervalVal.value)
+// });

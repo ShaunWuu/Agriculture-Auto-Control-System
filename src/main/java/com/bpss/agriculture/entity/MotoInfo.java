@@ -24,6 +24,7 @@ public class MotoInfo {
     private int iWaterMotoStatus1;
     private int iLightStatus1;
     private int iLightStatus2;
+    private int iLightStatus3;
     private String vcTime;
 
 }

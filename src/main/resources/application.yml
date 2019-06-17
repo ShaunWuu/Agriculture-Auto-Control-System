@@ -16,4 +16,5 @@ spring:
 #    mode: LEGACYHTML5
 
 mybatis:
-  config-location: classpath:mybatis/mybatis-config.xml
+  configuration:
+    map-underscore-to-camel-case: true

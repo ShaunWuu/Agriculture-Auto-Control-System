@@ -45,7 +45,21 @@ public class AgricultureServiceImpl implements AgricultureService {
 
     @Override
     public List<MotoCmdInfo> getLatestMotoCmdInfo() {
-        return agricultureMapper.getLatestMotoCmdInfo();
+        Date date = new Date();
+        List<MotoCmdInfo> infos = agricultureMapper.getLatestMotoCmdInfo();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHHmmss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        try {
+            for (MotoCmdInfo info : infos) {
+                String vcTimeStr = info.getVcTime();
+                date = formatter.parse(vcTimeStr);
+                String vcTime = sdf.format(date);
+                info.setVcTime(vcTime);
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return infos;
     }
 
     @Override
