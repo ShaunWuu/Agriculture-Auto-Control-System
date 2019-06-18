@@ -36,11 +36,12 @@ public interface AgricultureMapper {
     void writeMotoCmd(MotoCmdInfo info);
 
     /**
+     * TODO 分页
      * 获得所有设备操作记录
      * 数据总共大概 1000 多条
-     * @return
+     * @return 操作记录表中的所有数据
      */
-    @Select("SELECT * FROM tMotoCmdInfo")
+    @Select("SELECT * FROM tMotoCmdInfo ORDER BY vcTime DESC")
     List<MotoCmdInfo> getAllMotoCmdInfo();
 
     /**

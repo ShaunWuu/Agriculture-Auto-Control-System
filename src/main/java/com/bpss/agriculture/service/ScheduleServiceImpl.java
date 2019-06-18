@@ -1,6 +1,6 @@
 package com.bpss.agriculture.service;
 
-import com.bpss.agriculture.entity.CronVo;
+import com.bpss.agriculture.entity.Cron;
 import com.bpss.agriculture.entity.Schedule;
 import com.bpss.agriculture.mapper.ScheduleMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,22 +18,24 @@ public class ScheduleServiceImpl implements ScheduleService {
     ScheduleMapper scheduleMapper;
 
     @Override
-    public List<CronVo> getAllCron() {
+    public List<Cron> getAllCron() {
         return scheduleMapper.getAllCron();
     }
 
     @Override
-    public CronVo getCron(int id) {
-        return scheduleMapper.getCron(id);
+    public Cron getCronSelect() {
+        return scheduleMapper.getCronSelect();
     }
 
     @Override
-    public Schedule getSchedule(int id) {
-        return scheduleMapper.getSchedule(id);
+    public List<Schedule> getSchedule() {
+        return scheduleMapper.getSchedule();
     }
 
     @Override
-    public void changeSchedule(Schedule schedule) {
-        scheduleMapper.changeSchedule(schedule);
+    public void changeSchedule(List<Schedule> scheduleList) {
+        for (Schedule schedule : scheduleList) {
+            scheduleMapper.changeSchedule(schedule);
+        }
     }
 }

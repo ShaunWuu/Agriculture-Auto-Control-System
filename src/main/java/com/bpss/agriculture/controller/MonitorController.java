@@ -40,20 +40,28 @@ public class MonitorController {
 
     @RequestMapping("/config")
     public String config(Model model){
-        List<CronVo> cronList = scheduleService.getAllCron();
-        Schedule schedule = scheduleService.getSchedule(1);
-        int cid = schedule.getCid();
-        String cronNote = scheduleService.getCron(cid).getNote();
 
-        model.addAttribute(cronList);
-        model.addAttribute(schedule);
-        model.addAttribute(cronNote);
+        List<Cron> cronList = scheduleService.getAllCron();
+        List<Schedule> schedule = scheduleService.getSchedule();
+        int cronSelectId = scheduleService.getCronSelect().getId();
+
+        // 控制配置单
+        model.addAttribute("schedule", schedule);
+        // 监测时间间隔可选项
+        model.addAttribute("cronList", cronList);
+        // 选择的监测时间间隔的 id
+        model.addAttribute("cronSelectId", cronSelectId);
 
         return "config";
     }
 
     @RequestMapping("/table")
-    public String table(){
+    public String table(Model model){
+
+        List<MotoCmdInfo> allMotoCmdInfo = agricultureService.getAllMotoCmdInfo();
+
+        model.addAttribute("allMotoCmdInfo", allMotoCmdInfo);
+
         return "table";
     }
 

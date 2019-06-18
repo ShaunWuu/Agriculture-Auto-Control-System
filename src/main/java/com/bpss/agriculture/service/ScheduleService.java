@@ -1,6 +1,6 @@
 package com.bpss.agriculture.service;
 
-import com.bpss.agriculture.entity.CronVo;
+import com.bpss.agriculture.entity.Cron;
 import com.bpss.agriculture.entity.Schedule;
 
 import java.util.List;
@@ -10,12 +10,12 @@ import java.util.List;
  */
 public interface ScheduleService {
 
-    List<CronVo> getAllCron();
+    List<Cron> getAllCron();
 
-    CronVo getCron(int id);
+    Cron getCronSelect();
 
-    Schedule getSchedule(int id);
+    List<Schedule> getSchedule();
 
-    void changeSchedule(Schedule schedule);
+    void changeSchedule(List<Schedule> scheduleList);
 
 }

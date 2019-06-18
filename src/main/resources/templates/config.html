@@ -207,14 +207,13 @@
                       </div>
                     </div>
                   </div>
+
                   <div class="row">
                     <div class="col-md-3">
                       <div class="form-group">
                         <label>监测策略: </label>
                         <select class="form-control">
-                          <option value="1">每3秒监测一次</option>
-                          <option value="2">每5秒监测一次</option>
-                          <option value="2">每10秒监测一次</option>
+                          <option th:each="cron : ${cronList}" th:value="${cron.id}" th:text="${cron.note}" th:selected="${cronSelectId eq cron.id}"></option>
                         </select>
 
                       </div>

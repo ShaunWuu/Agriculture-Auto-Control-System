@@ -1,6 +1,6 @@
 package com.bpss.agriculture.mapper;
 
-import com.bpss.agriculture.entity.CronVo;
+import com.bpss.agriculture.entity.Cron;
 import com.bpss.agriculture.entity.Schedule;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -17,39 +17,37 @@ public interface ScheduleMapper {
 
     /**
      * 获得 Cron 列表
-     * @return List<CronVo>
+     * @return List<Cron>
      */
-    @Select("SELECT * FROM tCron")
-    List<CronVo> getAllCron();
+    @Select("SELECT * FROM tCron ORDER BY id")
+    List<Cron> getAllCron();
 
     /**
-     * 通过 id 获得对应的 CRON 表达式, 目的是以后希望加入多种策略的时候可以来回切换
-     * @param id CRON 表达式 ID
-     * @return CRON 表达式对象
+     * 获得选择的 Cron 对象
+     * @return 选择的 Cron 对象
      */
-    @Select("SELECT * FROM tCron WHERE id = #{id}")
-    CronVo getCron(int id);
+    @Select("SELECT * FROM tCron WHERE id = (SELECT cid FROM tCronSelect)")
+    Cron getCronSelect();
 
     /**
-     * 通过id获取控制策略
-     * @param id 策略 id
-     * @return 控制策略Vo
+     * 获取当前自动控制策略表
+     * @return 策略
      */
-    @Select("SELECT * FROM tSchedule WHERE id = #{id}")
-    Schedule getSchedule(int id);
+    @Select("SELECT * FROM tSchedule")
+    List<Schedule> getSchedule();
 
+    /**
+     * 修改单一属性监测范围
+     * @param schedule 某一样属性的监测范围
+     */
     @Update({"UPDATE " +
                 "tSchedule " +
             "SET " +
-                "lowAirTemp=#{lowAirTemp}, highAirTemp=#{highAirTemp}, " +
-                "lowAirWater=#{lowAirWater}, highAirWater=#{highAirWater}, " +
-                "lowEarthTemp=#{lowEarthTemp}, highEarthTemp=#{highEarthTemp}, " +
-                "lowEarthWater=#{lowEarthWater}, highEarthWater={highEarthWater}, " +
-                "lowCO2=#{lowCO2}, highCO2=#{highCO2}, " +
-                "lowEC=#{lowEC}, highEC=#{highEC}, " +
-                "lowPH=#{lowPH}, highPH=#{highPH}, " +
-                "lowLight=#{lowLight}, highLight=#{highLight}, " +
-                "cid=#{CronVo.cid}"})
+                "data=#{data}, note=#{note}, " +
+                "high=#{high}, low=#{low}, " +
+                "max=#{max}, min=#{min}, " +
+                "step=#{step}, decimals={decimals}, " +
+                "unit=#{unit} WHERE id=#{id}"})
     void changeSchedule(Schedule schedule);
 
 }

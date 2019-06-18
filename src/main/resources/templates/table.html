@@ -55,78 +55,17 @@
                         <th>操作时间</th>
                         <th>操作员ID</th>
                       </thead>
-                      <tbody>
+                      <tbody th:each="info : ${allMotoCmdInfo}">
                         <tr>
-                          <td class="text-primary">1</td>
-                          <td>补光灯</td>
-                          <td>打开</td>
-                          <td>处理成功</td>
-                          <td>处理成功还有什么简述但是这个描述贼多我感觉会放不下那我就试试再长一点</td>
-                          <td>2019-06-13 21:03:05</td>
-                          <td>1</td>
-                        </tr>
-                        <tr>
-                          <td class="text-primary">1</td>
-                          <td>补光灯</td>
-                          <td>打开</td>
-                          <td>处理成功</td>
-                          <td>处理成功还有什么简述</td>
-                          <td>2019-06-13 21:03:05</td>
-                          <td>1</td>
-                        </tr>
-                        <tr>
-                          <td class="text-primary">1</td>
-                          <td>补光灯</td>
-                          <td>打开</td>
-                          <td>处理成功</td>
-                          <td>处理成功还有什么简述</td>
-                          <td>2019-06-13 21:03:05</td>
-                          <td>1</td>
-                        </tr>
-                        <tr>
-                          <td class="text-primary">1</td>
-                          <td>补光灯</td>
-                          <td>打开</td>
-                          <td>处理成功</td>
-                          <td>处理成功还有什么简述</td>
-                          <td>2019-06-13 21:03:05</td>
-                          <td>1</td>
-                        </tr>
-                        <tr>
-                          <td class="text-primary">1</td>
-                          <td>补光灯</td>
-                          <td>打开</td>
-                          <td>处理成功</td>
-                          <td>处理成功还有什么简述</td>
-                          <td>2019-06-13 21:03:05</td>
-                          <td>1</td>
-                        </tr>
-                        <tr>
-                          <td class="text-primary">1</td>
-                          <td>补光灯</td>
-                          <td>打开</td>
-                          <td>处理成功</td>
-                          <td>处理成功还有什么简述</td>
-                          <td>2019-06-13 21:03:05</td>
-                          <td>1</td>
-                        </tr>
-                        <tr>
-                          <td class="text-primary">1</td>
-                          <td>补光灯</td>
-                          <td>打开</td>
-                          <td>处理成功</td>
-                          <td>处理成功还有什么简述</td>
-                          <td>2019-06-13 21:03:05</td>
-                          <td>1</td>
-                        </tr>
-                        <tr>
-                          <td class="text-primary">1</td>
-                          <td>补光灯</td>
-                          <td>打开</td>
-                          <td>处理成功</td>
-                          <td>处理成功还有什么简述</td>
-                          <td>2019-06-13 21:03:05</td>
-                          <td>1</td>
+                          <td class="text-primary" th:text="${info.id}">1</td>
+                          <td th:text="${info.vcMotoName}">补光灯</td>
+                          <td th:text="${info.vcActName}">打开</td>
+                          <td th:if="${info.ICmdStatus==0}">等待处理</td>
+                          <td th:if="${info.ICmdStatus==1}">处理成功</td>
+                          <td th:if="${info.ICmdStatus==2}">处理失败</td>
+                          <td th:text="${info.vcRemark}">处理成功还有什么简述但是这个描述贼多我感觉会放不下那我就试试再长一点</td>
+                          <td th:text="${info.vcTime}">2019-06-13 21:03:05</td>
+                          <td th:text="${info.IOperatorId}">1</td>
                         </tr>
                       </tbody>
                     </table>
