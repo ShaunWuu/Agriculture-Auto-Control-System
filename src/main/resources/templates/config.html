@@ -41,13 +41,18 @@
                 <h4 class="card-title">自动控制配置</h4>
                 <p class="card-category">在此处配置要自动保持的状态范围</p>
               </div>
-              <div class="card-body">
-                <form>
+              <div class="card-body" th:object="${scheduleList}">
+                <form th:action="@{/saveConfig}" id="configForm">
                   <div class="row">
+                    <!-- 空气温度 -->
                     <div class="col-md-3">
                       <div class="form-group">
                         <label>空气温度范围: </label>
                         <div id="airTemp" class="slider slider-warning noUi-target noUi-ltr noUi-horizontal"></div>
+                        <input type="hidden" value="null" th:value="${scheduleList.get(0).getHigh()}" id="airTempHigh">
+                        <input type="hidden" value="null" th:value="${scheduleList.get(0).getLow()}" id="airTempLow">
+                        <input type="hidden" value="null" th:value="${scheduleList.get(0).getMax()}" id="airTempMax">
+                        <input type="hidden" value="null" th:value="${scheduleList.get(0).getMin()}" id="airTempMin">
                         <div class="row">
                           <div class="col-md-6">
                             <div class="form-group">
@@ -64,10 +69,15 @@
                         </div>
                       </div>
                     </div>
+                    <!-- 空气湿度 -->
                     <div class="col-md-3">
                       <div class="form-group">
                         <label>空气湿度范围: </label>
                         <div id="airWater" class="slider slider-success noUi-target noUi-ltr noUi-horizontal"></div>
+                        <input type="hidden" value="null" th:value="${scheduleList.get(1).getHigh()}" id="airWaterHigh">
+                        <input type="hidden" value="null" th:value="${scheduleList.get(1).getLow()}" id="airWaterLow">
+                        <input type="hidden" value="null" th:value="${scheduleList.get(1).getMax()}" id="airWaterMax">
+                        <input type="hidden" value="null" th:value="${scheduleList.get(1).getMin()}" id="airWaterMin">
                         <div class="row">
                           <div class="col-md-6">
                             <div class="form-group">
@@ -84,122 +94,135 @@
                         </div>
                       </div>
                     </div>
+                    <!-- 土壤温度1 -->
                     <div class="col-md-3">
                       <div class="form-group">
-                        <label>土壤温度范围: </label>
-                        <div id="earthTemp" class="slider slider-primary noUi-target noUi-ltr noUi-horizontal"></div>
+                        <label>土壤温度1范围: </label>
+                        <div id="earthTemp1" class="slider slider-primary noUi-target noUi-ltr noUi-horizontal"></div>
+                        <input type="hidden" value="null" th:value="${scheduleList.get(2).getHigh()}"
+                               id="earthTemp1High">
+                        <input type="hidden" value="null" th:value="${scheduleList.get(2).getLow()}" id="earthTemp1Low">
+                        <input type="hidden" value="null" th:value="${scheduleList.get(2).getMax()}" id="earthTemp1Max">
+                        <input type="hidden" value="null" th:value="${scheduleList.get(2).getMin()}" id="earthTemp1Min">
                         <div class="row">
                           <div class="col-md-6">
                             <div class="form-group">
                               <label>最低温度 ℃</label>
-                              <input id="lowEarthTemp" type="text" class="form-control">
+                              <input id="lowEarthTemp1" type="text" class="form-control">
                             </div>
                           </div>
                           <div class="col-md-6">
                             <div class="form-group">
                               <label>最高温度 ℃</label>
-                              <input id="highEarthTemp" type="text" class="form-control">
+                              <input id="highEarthTemp1" type="text" class="form-control">
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
+                    <!-- 土壤水分1 -->
                     <div class="col-md-3">
                       <div class="form-group">
-                        <label>土壤湿度范围: </label>
-                        <div id="earthWater" class="slider slider-info noUi-target noUi-ltr noUi-horizontal"></div>
+                        <label>土壤水分1范围: </label>
+                        <div id="earthWater1" class="slider slider-info noUi-target noUi-ltr noUi-horizontal"></div>
+                        <input type="hidden" value="null" th:value="${scheduleList.get(3).getHigh()}"
+                               id="earthWater1High">
+                        <input type="hidden" value="null" th:value="${scheduleList.get(3).getLow()}"
+                               id="earthWater1Low">
+                        <input type="hidden" value="null" th:value="${scheduleList.get(3).getMax()}"
+                               id="earthWater1Max">
+                        <input type="hidden" value="null" th:value="${scheduleList.get(3).getMin()}"
+                               id="earthWater1Min">
                         <div class="row">
                           <div class="col-md-6">
                             <div class="form-group">
                               <label>最低湿度 %</label>
-                              <input id="lowEarthWater" type="text" class="form-control">
+                              <input id="lowEarthWater1" type="text" class="form-control">
                             </div>
                           </div>
                           <div class="col-md-6">
                             <div class="form-group">
                               <label>最高湿度 %</label>
-                              <input id="highEarthWater" type="text" class="form-control">
+                              <input id="highEarthWater1" type="text" class="form-control">
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="row">
+                    <!-- 土壤温度2 -->
                     <div class="col-md-3">
                       <div class="form-group">
-                        <label>空气 CO<sub>2</sub> 范围: </label>
-                        <div id="co2" class="slider slider-second noUi-target noUi-ltr noUi-horizontal"></div>
+                        <label>土壤温度2范围: </label>
+                        <div id="earthTemp2" class="slider slider-primary noUi-target noUi-ltr noUi-horizontal"></div>
+                        <input type="hidden" value="null" th:value="${scheduleList.get(4).getHigh()}"
+                               id="earthTemp2High">
+                        <input type="hidden" value="null" th:value="${scheduleList.get(4).getLow()}" id="earthTemp2Low">
+                        <input type="hidden" value="null" th:value="${scheduleList.get(4).getMax()}" id="earthTemp2Max">
+                        <input type="hidden" value="null" th:value="${scheduleList.get(4).getMin()}" id="earthTemp2Min">
                         <div class="row">
                           <div class="col-md-6">
                             <div class="form-group">
-                              <label>最低浓度 PPM</label>
-                              <input id="lowCO2" type="text" class="form-control">
+                              <label>最低温度 ℃</label>
+                              <input id="lowEarthTemp2" type="text" class="form-control">
                             </div>
                           </div>
                           <div class="col-md-6">
                             <div class="form-group">
-                              <label>最高浓度 PPM</label>
-                              <input id="highCO2" type="text" class="form-control">
+                              <label>最高温度 ℃</label>
+                              <input id="highEarthTemp2" type="text" class="form-control">
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
+                    <!-- 土壤水分2 -->
                     <div class="col-md-3">
                       <div class="form-group">
-                        <label>土壤 EC 值范围: </label>
-                        <div id="ec" class="slider slider-danger noUi-target noUi-ltr noUi-horizontal"></div>
+                        <label>土壤水分2范围: </label>
+                        <div id="earthWater2" class="slider slider-info noUi-target noUi-ltr noUi-horizontal"></div>
+                        <input type="hidden" value="null" th:value="${scheduleList.get(5).getHigh()}"
+                               id="earthWater2High">
+                        <input type="hidden" value="null" th:value="${scheduleList.get(5).getLow()}"
+                               id="earthWater2Low">
+                        <input type="hidden" value="null" th:value="${scheduleList.get(5).getMax()}"
+                               id="earthWater2Max">
+                        <input type="hidden" value="null" th:value="${scheduleList.get(5).getMin()}"
+                               id="earthWater2Min">
                         <div class="row">
                           <div class="col-md-6">
                             <div class="form-group">
-                              <label>最低EC (mS/cm)</label>
-                              <input id="lowEC" type="text" class="form-control">
+                              <label>最低湿度 %</label>
+                              <input id="lowEarthWater2" type="text" class="form-control">
                             </div>
                           </div>
                           <div class="col-md-6">
                             <div class="form-group">
-                              <label>最高EC (mS/cm)</label>
-                              <input id="highEC" type="text" class="form-control">
+                              <label>最高湿度 %</label>
+                              <input id="highEarthWater2" type="text" class="form-control">
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="col-md-3">
-                      <div class="form-group">
-                        <label>土壤 PH 值范围: </label>
-                        <div id="ph" class="slider slider-rose noUi-target noUi-ltr noUi-horizontal"></div>
-                        <div class="row">
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label>最低 PH</label>
-                              <input id="lowPH" type="text" class="form-control">
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label>最高 PH</label>
-                              <input id="highPH" type="text" class="form-control">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    <!-- 光照强度 -->
                     <div class="col-md-3">
                       <div class="form-group">
                         <label>光照强度范围: </label>
-                        <div id="light" class="slider slider-warning noUi-target noUi-ltr noUi-horizontal"></div>
+                        <div id="Light" class="slider slider-warning noUi-target noUi-ltr noUi-horizontal"></div>
+                        <input type="hidden" value="null" th:value="${scheduleList.get(6).getHigh()}" id="LightHigh">
+                        <input type="hidden" value="null" th:value="${scheduleList.get(6).getLow()}" id="LightLow">
+                        <input type="hidden" value="null" th:value="${scheduleList.get(6).getMax()}" id="LightMax">
+                        <input type="hidden" value="null" th:value="${scheduleList.get(6).getMin()}" id="LightMin">
                         <div class="row">
                           <div class="col-md-6">
                             <div class="form-group">
-                              <label>最低强度 Lux</label>
+                              <label>最低光强 Lux</label>
                               <input id="lowLight" type="text" class="form-control">
                             </div>
                           </div>
                           <div class="col-md-6">
                             <div class="form-group">
-                              <label>最高强度 Lux</label>
+                              <label>最高光强 Lux</label>
                               <input id="highLight" type="text" class="form-control">
                             </div>
                           </div>
@@ -207,21 +230,21 @@
                       </div>
                     </div>
                   </div>
-
                   <div class="row">
                     <div class="col-md-3">
                       <div class="form-group">
                         <label>监测策略: </label>
-                        <select class="form-control">
-                          <option th:each="cron : ${cronList}" th:value="${cron.id}" th:text="${cron.note}" th:selected="${cronSelectId eq cron.id}"></option>
+                        <select class="form-control" th:action="@{/saveCronSelect}" id="cronConfigForm">
+                          <option th:each="cron : ${cronList}" th:value="${cron.id}" th:text="${cron.note}"
+                                  th:selected="${cronSelectId eq cron.id}" id="cronSelect"></option>
                         </select>
 
                       </div>
                     </div>
-
                   </div>
-                  <button type="button" onclick="submit" class="btn btn-primary">保存配置</button>
-                  <button type="button" class="btn">恢复配置</button>
+
+                  <button type="button" onclick="saveConfig()" class="btn btn-primary">保存配置</button>
+                  <!--<button type="button" class="btn">恢复配置</button>-->
                   <div class="clearfix"></div>
                 </form>
               </div>
@@ -252,6 +275,112 @@
         th:src="@{/js/plugins/wNumb.js}"></script>
 <script src="../static/js/config.js"
         th:src="@{/js/config.js}"></script>
+
+<script type="text/javascript" th:inline="javascript">
+
+    var formUrl = $("#configForm");
+    var cronUrl = $("#cronConfigForm")
+
+    function saveConfig() {
+
+        var scheduleDtoList = [];
+
+        var lowAirTemp = document.getElementById('lowAirTemp');
+        var highAirTemp = document.getElementById('highAirTemp');
+
+        var lowAirWater = document.getElementById('lowAirWater');
+        var highAirWater = document.getElementById('highAirWater');
+
+        var lowEarthTemp1 = document.getElementById('lowEarthTemp1');
+        var highEarthTemp1 = document.getElementById('highEarthTemp1');
+
+        var lowEarthTemp2 = document.getElementById('lowEarthTemp2');
+        var highEarthTemp2 = document.getElementById('highEarthTemp2');
+
+        var lowEarthWater1 = document.getElementById('lowEarthWater1');
+        var highEarthWater1 = document.getElementById('highEarthWater1');
+
+        var lowEarthWater2 = document.getElementById('lowEarthWater2');
+        var highEarthWater2 = document.getElementById('highEarthWater2');
+
+        var lowLight = document.getElementById('lowLight');
+        var highLight = document.getElementById('highLight');
+
+        var scheduleDto0 = {
+            "id": 1,
+            "high": parseFloat(highAirTemp.value),
+            "low": parseFloat(lowAirTemp.value)
+        }
+
+        var scheduleDto1 = {
+            "id": 2,
+            "high": parseFloat(highAirWater.value),
+            "low": parseFloat(lowAirWater.value)
+        }
+
+        var scheduleDto2 = {
+            "id": 3,
+            "high": parseFloat(highEarthTemp1.value),
+            "low": parseFloat(lowEarthTemp1.value)
+        }
+
+        var scheduleDto3 = {
+            "id": 4,
+            "high": parseFloat(highEarthWater1.value),
+            "low": parseFloat(lowEarthWater1.value)
+        }
+
+        var scheduleDto4 = {
+            "id": 5,
+            "high": parseFloat(highEarthTemp2.value),
+            "low": parseFloat(lowEarthTemp2.value)
+        }
+
+        var scheduleDto5 = {
+            "id": 6,
+            "high": parseFloat(highEarthWater2.value),
+            "low": parseFloat(lowEarthWater2.value)
+        }
+
+        var scheduleDto6 = {
+            "id": 7,
+            "high": parseFloat(highLight.value),
+            "low": parseFloat(lowLight.value)
+        }
+
+        scheduleDtoList.push(scheduleDto0);
+        scheduleDtoList.push(scheduleDto1);
+        scheduleDtoList.push(scheduleDto2);
+        scheduleDtoList.push(scheduleDto3);
+        scheduleDtoList.push(scheduleDto4);
+        scheduleDtoList.push(scheduleDto5);
+        scheduleDtoList.push(scheduleDto6);
+
+        var cronSelect = $("#cronConfigForm option:selected");
+        var cid = cronSelect.val();
+
+        $.ajax({
+            type: "POST",
+            url: cronUrl.attr('action'),
+            data: JSON.stringify({cid: cid}),
+            dataType: "json",
+            contentType: "application/json",
+        });
+
+        $.ajax({
+            type: "POST",
+            url: formUrl.attr('action'),
+            data: JSON.stringify(scheduleDtoList),
+            success: function () {
+                alert("配置保存成功！");
+                window.location.reload();
+            },
+            dataType: "json",
+            contentType: "application/json",
+        })
+    }
+</script>
+
 </body>
 
 </html>

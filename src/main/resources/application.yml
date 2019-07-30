@@ -18,3 +18,7 @@ spring:
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
+
+pagehelper:
+  auto-dialect: mysql
+  reasonable: true

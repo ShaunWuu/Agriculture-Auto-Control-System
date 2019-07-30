@@ -1,180 +1,45 @@
 var airTemp = document.getElementById("airTemp");
 var airWater = document.getElementById("airWater");
-var earthTemp = document.getElementById("earthTemp");
-var earthWater = document.getElementById("earthWater");
-var co2 = document.getElementById("co2");
-var ec = document.getElementById("ec");
-var ph = document.getElementById("ph");
-var light = document.getElementById("light");
+var earthTemp1 = document.getElementById("earthTemp1");
+var earthWater1 = document.getElementById("earthWater1");
+var earthTemp2 = document.getElementById("earthTemp2");
+var earthWater2 = document.getElementById("earthWater2");
+var Light = document.getElementById("Light");
 
-noUiSlider.create(airTemp, {
-    start: [16, 25],
-    connect: true,
-    step: 1,
-    range: {
-        'min': 0,
-        'max': 50
-    },
-    ariaFormat: wNumb({
-        decimals: 0
-    })
-    ,
-    format: wNumb({
-        decimals: 0
-    })
-});
+var airTempHigh = parseInt(document.getElementById("airTempHigh").value);
+var airTempLow = parseInt(document.getElementById("airTempLow").value);
+var airTempMax = parseInt(document.getElementById("airTempMax").value);
+var airTempMin = parseInt(document.getElementById("airTempMin").value);
 
-noUiSlider.create(airWater, {
-    start: [60, 85],
-    connect: true,
-    step: 1,
-    range: {
-        'min': 0,
-        'max': 100
-    },
-    ariaFormat: wNumb({
-        decimals: 0
-    })
-    ,
-    format: wNumb({
-        decimals: 0
-    })
-});
+var airWaterHigh = parseInt(document.getElementById("airWaterHigh").value);
+var airWaterLow = parseInt(document.getElementById("airWaterLow").value);
+var airWaterMax = parseInt(document.getElementById("airWaterMax").value);
+var airWaterMin = parseInt(document.getElementById("airWaterMin").value);
 
-noUiSlider.create(earthTemp, {
-    start: [23, 30],
-    connect: true,
-    step: 1,
-    range: {
-        'min': 0,
-        'max': 50
-    },
-    ariaFormat: wNumb({
-        decimals: 0
-    })
-    ,
-    format: wNumb({
-        decimals: 0
-    })
-});
+var earthTemp1High = parseInt(document.getElementById("earthTemp1High").value);
+var earthTemp1Low = parseInt(document.getElementById("earthTemp1Low").value);
+var earthTemp1Max = parseInt(document.getElementById("earthTemp1Max").value);
+var earthTemp1Min = parseInt(document.getElementById("earthTemp1Min").value);
 
-noUiSlider.create(earthWater, {
-    start: [40, 60],
-    connect: true,
-    step: 1,
-    range: {
-        'min': 0,
-        'max': 100
-    },
-    ariaFormat: wNumb({
-        decimals: 0
-    })
-    ,
-    format: wNumb({
-        decimals: 0
-    })
-});
+var earthTemp2High = parseInt(document.getElementById("earthTemp2High").value);
+var earthTemp2Low = parseInt(document.getElementById("earthTemp2Low").value);
+var earthTemp2Max = parseInt(document.getElementById("earthTemp2Max").value);
+var earthTemp2Min = parseInt(document.getElementById("earthTemp2Min").value);
 
-noUiSlider.create(co2, {
-    start: [300, 500],
-    connect: true,
-    step: 5,
-    range: {
-        'min': 0,
-        'max': 1000
-    },
-    ariaFormat: wNumb({
-        decimals: 0
-    })
-    ,
-    format: wNumb({
-        decimals: 0
-    })
-});
+var earthWater1High = parseInt(document.getElementById("earthWater1High").value);
+var earthWater1Low = parseInt(document.getElementById("earthWater1Low").value);
+var earthWater1Max = parseInt(document.getElementById("earthWater1Max").value);
+var earthWater1Min = parseInt(document.getElementById("earthWater1Min").value);
 
-noUiSlider.create(ec, {
-    start: [1, 4],
-    connect: true,
-    step: 0.01,
-    range: {
-        'min': 0,
-        'max': 5
-    },
-    ariaFormat: wNumb({
-        decimals: 1
-    })
-    ,
-    format: wNumb({
-        decimals: 1
-    })
-});
+var earthWater2High = parseInt(document.getElementById("earthWater2High").value);
+var earthWater2Low = parseInt(document.getElementById("earthWater2Low").value);
+var earthWater2Max = parseInt(document.getElementById("earthWater2Max").value);
+var earthWater2Min = parseInt(document.getElementById("earthWater2Min").value);
 
-noUiSlider.create(ph, {
-    start: [5.5, 7],
-    connect: true,
-    step: 0.1,
-    range: {
-        'min': 0,
-        'max': 14
-    },
-    ariaFormat: wNumb({
-        decimals: 1
-    })
-    ,
-    format: wNumb({
-        decimals: 1
-    })
-});
-
-noUiSlider.create(light, {
-    start: [1000, 1300],
-    connect: true,
-    step: 100,
-    range: {
-        'min': 0,
-        'max': 2000
-    },
-    ariaFormat: wNumb({
-        decimals: 0
-    })
-    ,
-    format: wNumb({
-        decimals: 0
-    })
-});
-
-// noUiSlider.create(waterLevel, {
-//     start: [40, 60],
-//     connect: true,
-//     step: 0.01,
-//     range: {
-//         'min': 0,
-//         'max': 100
-//     },
-//     ariaFormat: wNumb({
-//         decimals: 0
-//     })
-//     ,
-//     format: wNumb({
-//         decimals: 0
-//     })
-// });
-
-// noUiSlider.create(monitorInterval, {
-//     start: [3],
-//     step: 1,
-//     range: {
-//         'min': 3,
-//         'max': 300
-//     },
-//     ariaFormat: wNumb({
-//         decimals: 0
-//     })
-//     ,
-//     format: wNumb({
-//         decimals: 0
-//     })
-// });
+var LightHigh = parseInt(document.getElementById("LightHigh").value);
+var LightLow = parseInt(document.getElementById("LightLow").value);
+var LightMax = parseInt(document.getElementById("LightMax").value);
+var LightMin = parseInt(document.getElementById("LightMin").value);
 
 var lowAirTemp = document.getElementById('lowAirTemp');
 var highAirTemp = document.getElementById('highAirTemp');
@@ -182,296 +47,184 @@ var highAirTemp = document.getElementById('highAirTemp');
 var lowAirWater = document.getElementById('lowAirWater');
 var highAirWater = document.getElementById('highAirWater');
 
-var lowEarthWater = document.getElementById('lowEarthWater');
-var highEarthWater = document.getElementById('highEarthWater');
+var lowEarthTemp1 = document.getElementById('lowEarthTemp1');
+var highEarthTemp1 = document.getElementById('highEarthTemp1');
 
-var lowEarthTemp = document.getElementById('lowEarthTemp');
-var highEarthTemp = document.getElementById('highEarthTemp');
+var lowEarthWater1 = document.getElementById('lowEarthWater1');
+var highEarthWater1 = document.getElementById('highEarthWater1');
 
-var lowCO2 = document.getElementById('lowCO2');
-var highCO2 = document.getElementById('highCO2');
+var lowEarthTemp2 = document.getElementById('lowEarthTemp2');
+var highEarthTemp2 = document.getElementById('highEarthTemp2');
 
-var lowEC = document.getElementById('lowEC');
-var highEC = document.getElementById('highEC');
-
-var lowPH = document.getElementById('lowPH');
-var highPH = document.getElementById('highPH');
+var lowEarthWater2 = document.getElementById('lowEarthWater2');
+var highEarthWater2 = document.getElementById('highEarthWater2');
 
 var lowLight = document.getElementById('lowLight');
 var highLight = document.getElementById('highLight');
 
-// var lowWaterLevel = document.getElementById('lowWaterLevel');
-// var highWaterLevel = document.getElementById('highWaterLevel');
+createSlider(airTemp, airTempHigh, airTempLow, 1, airTempMax, airTempMin, 0);
+createSlider(airWater, airWaterHigh, airWaterLow, 1, airWaterMax, airWaterMin, 0);
+createSlider(earthTemp1, earthTemp1High, earthTemp1Low, 1, earthTemp1Max, earthTemp1Min, 0);
+createSlider(earthWater1, earthWater1High, earthWater1Low, 1, earthWater1Max, earthWater1Min, 0);
+createSlider(earthTemp2, earthTemp2High, earthTemp2Low, 1, earthTemp2Max, earthTemp2Min, 0);
+createSlider(earthWater2, earthWater2High, earthWater2Low, 1, earthWater2Max, earthWater2Min, 0);
+createSlider(Light, LightHigh, LightLow, 100, LightMax, LightMin, 0);
 
-// var monitorIntervalVal = document.getElementById("monitorIntervalVal");
+setAllSliderNumber();
 
-airTemp.noUiSlider.on('update', function (values) {
-    document.getElementById('lowAirTemp').setAttribute('value', values[0]);
-    document.getElementById('lowAirTemp').value = values[0];
-    document.getElementById('highAirTemp').setAttribute('value', values[1]);
-    document.getElementById('highAirTemp').value = values[1];
-});
+function setAllSliderNumber(){
 
-lowAirTemp.addEventListener('change', function () {
-    var getter = airTemp.noUiSlider.get();
-    airTemp.noUiSlider.set([lowAirTemp.value,getter[1]])
-});
+    airTemp.noUiSlider.on('update', function (values) {
+        document.getElementById('lowAirTemp').setAttribute('value', values[0]);
+        document.getElementById('lowAirTemp').value = values[0];
+        document.getElementById('highAirTemp').setAttribute('value', values[1]);
+        document.getElementById('highAirTemp').value = values[1];
+    });
 
-highAirTemp.addEventListener('change', function () {
-    var getter = airTemp.noUiSlider.get();
-    airTemp.noUiSlider.set([getter[0], highAirTemp.value])
-});
+    lowAirTemp.addEventListener('change', function () {
+        var getter = airTemp.noUiSlider.get();
+        airTemp.noUiSlider.set([lowAirTemp.value,getter[1]])
+    });
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+    highAirTemp.addEventListener('change', function () {
+        var getter = airTemp.noUiSlider.get();
+        airTemp.noUiSlider.set([getter[0], highAirTemp.value])
+    });
 
-airWater.noUiSlider.on('update', function (values) {
-    document.getElementById('lowAirWater').setAttribute('value', values[0]);
-    document.getElementById('lowAirWater').value = values[0];
-    document.getElementById('highAirWater').setAttribute('value', values[1]);
-    document.getElementById('highAirWater').value = values[1];
-});
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-lowAirWater.addEventListener('change', function () {
-    var getter = airWater.noUiSlider.get();
-    airWater.noUiSlider.set([lowAirWater.value,getter[1]])
-});
+    airWater.noUiSlider.on('update', function (values) {
+        document.getElementById('lowAirWater').setAttribute('value', values[0]);
+        document.getElementById('lowAirWater').value = values[0];
+        document.getElementById('highAirWater').setAttribute('value', values[1]);
+        document.getElementById('highAirWater').value = values[1];
+    });
 
-highAirWater.addEventListener('change', function () {
-    var getter = airWater.noUiSlider.get();
-    airWater.noUiSlider.set([getter[0], highAirWater.value])
-});
+    lowAirWater.addEventListener('change', function () {
+        var getter = airWater.noUiSlider.get();
+        airWater.noUiSlider.set([lowAirWater.value,getter[1]])
+    });
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+    highAirWater.addEventListener('change', function () {
+        var getter = airWater.noUiSlider.get();
+        airWater.noUiSlider.set([getter[0], highAirWater.value])
+    });
+    
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    earthTemp1.noUiSlider.on('update', function (values) {
+        document.getElementById('lowEarthTemp1').setAttribute('value', values[0]);
+        document.getElementById('lowEarthTemp1').value = values[0];
+        document.getElementById('highEarthTemp1').setAttribute('value', values[1]);
+        document.getElementById('highEarthTemp1').value = values[1];
+    });
 
-earthTemp.noUiSlider.on('update', function (values) {
-    document.getElementById('lowEarthTemp').setAttribute('value', values[0]);
-    document.getElementById('lowEarthTemp').value = values[0];
-    document.getElementById('highEarthTemp').setAttribute('value', values[1]);
-    document.getElementById('highEarthTemp').value = values[1];
-});
+    lowEarthTemp1.addEventListener('change', function () {
+        var getter = earthTemp1.noUiSlider.get();
+        earthTemp1.noUiSlider.set([lowEarthTemp1.value,getter[1]])
+    });
 
-lowEarthTemp.addEventListener('change', function () {
-    var getter = earthTemp.noUiSlider.get();
-    earthTemp.noUiSlider.set([lowEarthTemp.value,getter[1]])
-});
+    highEarthTemp1.addEventListener('change', function () {
+        var getter = earthTemp1.noUiSlider.get();
+        earthTemp1.noUiSlider.set([getter[0], highEarthTemp1.value])
+    });
 
-highEarthTemp.addEventListener('change', function () {
-    var getter = earthTemp.noUiSlider.get();
-    earthTemp.noUiSlider.set([getter[0], highEarthTemp.value])
-});
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+    earthTemp2.noUiSlider.on('update', function (values) {
+        document.getElementById('lowEarthTemp2').setAttribute('value', values[0]);
+        document.getElementById('lowEarthTemp2').value = values[0];
+        document.getElementById('highEarthTemp2').setAttribute('value', values[1]);
+        document.getElementById('highEarthTemp2').value = values[1];
+    });
 
-earthWater.noUiSlider.on('update', function (values) {
-    document.getElementById('lowEarthWater').setAttribute('value', values[0]);
-    document.getElementById('lowEarthWater').value = values[0];
-    document.getElementById('highEarthWater').setAttribute('value', values[1]);
-    document.getElementById('highEarthWater').value = values[1];
-});
+    lowEarthTemp2.addEventListener('change', function () {
+        var getter = earthTemp2.noUiSlider.get();
+        earthTemp2.noUiSlider.set([lowEarthTemp2.value,getter[1]])
+    });
 
-lowEarthWater.addEventListener('change', function () {
-    var getter = earthWater.noUiSlider.get();
-    earthWater.noUiSlider.set([lowEarthWater.value,getter[1]])
-});
+    highEarthTemp2.addEventListener('change', function () {
+        var getter = earthTemp2.noUiSlider.get();
+        earthTemp2.noUiSlider.set([getter[0], highEarthTemp2.value])
+    });
 
-highEarthWater.addEventListener('change', function () {
-    var getter = earthWater.noUiSlider.get();
-    earthWater.noUiSlider.set([getter[0], highEarthWater.value])
-});
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+    earthWater1.noUiSlider.on('update', function (values) {
+        document.getElementById('lowEarthWater1').setAttribute('value', values[0]);
+        document.getElementById('lowEarthWater1').value = values[0];
+        document.getElementById('highEarthWater1').setAttribute('value', values[1]);
+        document.getElementById('highEarthWater1').value = values[1];
+    });
 
-co2.noUiSlider.on('update', function (values) {
-    document.getElementById('lowCO2').setAttribute('value', values[0]);
-    document.getElementById('lowCO2').value = values[0];
-    document.getElementById('highCO2').setAttribute('value', values[1]);
-    document.getElementById('highCO2').value = values[1];
-});
+    lowEarthWater1.addEventListener('change', function () {
+        var getter = earthWater1.noUiSlider.get();
+        earthWater1.noUiSlider.set([lowEarthWater1.value,getter[1]])
+    });
 
-lowCO2.addEventListener('change', function () {
-    var getter = co2.noUiSlider.get();
-    co2.noUiSlider.set([lowCO2.value,getter[1]])
-});
+    highEarthWater1.addEventListener('change', function () {
+        var getter = earthWater1.noUiSlider.get();
+        earthWater1.noUiSlider.set([getter[0], highEarthWater1.value])
+    });
 
-highCO2.addEventListener('change', function () {
-    var getter = co2.noUiSlider.get();
-    co2.noUiSlider.set([getter[0], highCO2.value])
-});
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+    earthWater2.noUiSlider.on('update', function (values) {
+        document.getElementById('lowEarthWater2').setAttribute('value', values[0]);
+        document.getElementById('lowEarthWater2').value = values[0];
+        document.getElementById('highEarthWater2').setAttribute('value', values[1]);
+        document.getElementById('highEarthWater2').value = values[1];
+    });
 
-ec.noUiSlider.on('update', function (values) {
-    document.getElementById('lowEC').setAttribute('value', values[0]);
-    document.getElementById('lowEC').value = values[0];
-    document.getElementById('highEC').setAttribute('value', values[1]);
-    document.getElementById('highEC').value = values[1];
-});
+    lowEarthWater2.addEventListener('change', function () {
+        var getter = earthWater2.noUiSlider.get();
+        earthWater2.noUiSlider.set([lowEarthWater2.value,getter[1]])
+    });
 
-lowEC.addEventListener('change', function () {
-    var getter = ec.noUiSlider.get();
-    ec.noUiSlider.set([lowEC.value,getter[1]])
-});
+    highEarthWater2.addEventListener('change', function () {
+        var getter = earthWater2.noUiSlider.get();
+        earthWater2.noUiSlider.set([getter[0], highEarthWater2.value])
+    });
 
-highEC.addEventListener('change', function () {
-    var getter = ec.noUiSlider.get();
-    ec.noUiSlider.set([getter[0], highEC.value])
-});
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+    Light.noUiSlider.on('update', function (values) {
+        document.getElementById('lowLight').setAttribute('value', values[0]);
+        document.getElementById('lowLight').value = values[0];
+        document.getElementById('highLight').setAttribute('value', values[1]);
+        document.getElementById('highLight').value = values[1];
+    });
 
-ph.noUiSlider.on('update', function (values) {
-    document.getElementById('lowPH').setAttribute('value', values[0]);
-    document.getElementById('lowPH').value = values[0];
-    document.getElementById('highPH').setAttribute('value', values[1]);
-    document.getElementById('highPH').value = values[1];
-});
+    lowLight.addEventListener('change', function () {
+        var getter = Light.noUiSlider.get();
+        Light.noUiSlider.set([lowLight.value,getter[1]])
+    });
 
-lowPH.addEventListener('change', function () {
-    var getter = ph.noUiSlider.get();
-    ph.noUiSlider.set([lowPH.value,getter[1]])
-});
+    highLight.addEventListener('change', function () {
+        var getter = Light.noUiSlider.get();
+        Light.noUiSlider.set([getter[0], highLight.value])
+    });
 
-highPH.addEventListener('change', function () {
-    var getter = ph.noUiSlider.get();
-    ph.noUiSlider.set([getter[0], highPH.value])
-});
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
-
-light.noUiSlider.on('update', function (values) {
-    document.getElementById('lowLight').setAttribute('value', values[0]);
-    document.getElementById('lowLight').value = values[0];
-    document.getElementById('highLight').setAttribute('value', values[1]);
-    document.getElementById('highLight').value = values[1];
-});
-
-lowLight.addEventListener('change', function () {
-    var getter = light.noUiSlider.get();
-    light.noUiSlider.set([lowLight.value,getter[1]])
-});
-
-highLight.addEventListener('change', function () {
-    var getter = light.noUiSlider.get();
-    light.noUiSlider.set([getter[0], highLight.value])
-});
-
-////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// waterLevel.noUiSlider.on('update', function (values) {
-//     document.getElementById('lowWaterLevel').setAttribute('value', values[0]);
-//     document.getElementById('lowWaterLevel').value = values[0];
-//     document.getElementById('highWaterLevel').setAttribute('value', values[1]);
-//     document.getElementById('highWaterLevel').value = values[1];
-// });
-//
-// lowWaterLevel.addEventListener('change', function () {
-//     var getter = waterLevel.noUiSlider.get();
-//     waterLevel.noUiSlider.set([lowWaterLevel.value,getter[1]])
-// });
-//
-// highWaterLevel.addEventListener('change', function () {
-//     var getter = waterLevel.noUiSlider.get();
-//     waterLevel.noUiSlider.set([getter[0], highWaterLevel.value])
-// });
-
-////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// monitorInterval.noUiSlider.on('update', function (values) {
-//     document.getElementById('monitorIntervalVal').setAttribute('value', values[0]);
-//     document.getElementById("monitorIntervalVal").value = values[0];
-// });
-//
-// monitorIntervalVal.addEventListener('change', function () {
-//     monitorInterval.noUiSlider.set(monitorIntervalVal.value)
-// });
-
-/////////////////////////////////////////////// 封装 ///////////////////////////////////////////////
-
-function createSlider(slider){
-
-    for (var i = 0, len = slider.length; i < len ; i++){
-        noUiSlider.create(slider[i], {
-            start: [slider[i].high, slider[i].low],
-            connect: slider,
-            step: slider[i].step,
-            range: {
-                'min': slider[i].min,
-                'max': slider[i].max
-            },
-            ariaFormat: wNumb({
-                decimals: slider[i].decimals
-            }),
-            format: wNumb({
-                decimals: slider[i].decimals
-            })
-        });
-
-        slider[i].setAttribute('value', values[0]);
-        slider[i].value = values[0];
-        slider[i].setAttribute('value', values[1]);
-        slider[i].value = values[1];
-    }
-
-
-    // noUiSlider.create(this, {
-    //     start: [this.high, this.low],
-    //     connect: true,
-    //     step: this.step,
-    //     range: {
-    //         'min': this.min,
-    //         'max': this.max
-    //     },
-    //     ariaFormat: wNumb({
-    //         decimals: 0
-    //     }),
-    //     format: wNumb({
-    //         decimals: 0
-    //     })
-    // });
-    //
-    // this.setAttribute('value', values[0]);
-    // this.value = values[0];
-    // this.setAttribute('value', values[1]);
-    // this.value = values[1];
 }
 
-// 参考步骤
+function createSlider(element, high, low, stepSet, maxSet, minSet, decimalSet){
 
-// var airTemp = document.getElementById("airTemp");
-//
-// noUiSlider.create(airTemp, {
-//     start: [16, 25],
-//     connect: true,
-//     step: 1,
-//     range: {
-//         'min': 0,
-//         'max': 50
-//     },
-//     ariaFormat: wNumb({
-//         decimals: 0
-//     })
-//     ,
-//     format: wNumb({
-//         decimals: 0
-//     })
-// });
-//
-// var lowAirTemp = document.getElementById('lowAirTemp');
-// var highAirTemp = document.getElementById('highAirTemp');
-//
-// airTemp.noUiSlider.on('update', function (values) {
-//     document.getElementById('lowAirTemp').setAttribute('value', values[0]);
-//     document.getElementById('lowAirTemp').value = values[0];
-//     document.getElementById('highAirTemp').setAttribute('value', values[1]);
-//     document.getElementById('highAirTemp').value = values[1];
-// });
-//
-// lowAirTemp.addEventListener('change', function () {
-//     var getter = airTemp.noUiSlider.get();
-//     airTemp.noUiSlider.set([lowAirTemp.value,getter[1]])
-// });
-//
-// highAirTemp.addEventListener('change', function () {
-//     var getter = airTemp.noUiSlider.get();
-//     airTemp.noUiSlider.set([getter[0], highAirTemp.value])
-// });
+    noUiSlider.create(element, {
+        start: [low, high],
+        connect: true,
+        step: stepSet,
+        range: {
+            'min': minSet,
+            'max': maxSet
+        },
+        ariaFormat: wNumb({
+            decimals: decimalSet
+        }),
+        format: wNumb({
+            decimals: decimalSet
+        })
+    });
+
+}

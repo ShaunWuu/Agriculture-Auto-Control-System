@@ -2,6 +2,7 @@ package com.bpss.agriculture.mapper;
 
 import com.bpss.agriculture.entity.Cron;
 import com.bpss.agriculture.entity.Schedule;
+import com.bpss.agriculture.entity.ScheduleDto;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Component;
@@ -37,17 +38,25 @@ public interface ScheduleMapper {
     List<Schedule> getSchedule();
 
     /**
-     * 修改单一属性监测范围
-     * @param schedule 某一样属性的监测范围
+     * 通过 id 获取对应的自动控制策略
+     * @param id 要获取的自动控制策略 id
+     * @return 对应 id 的自动控制策略表
      */
-    @Update({"UPDATE " +
-                "tSchedule " +
-            "SET " +
-                "data=#{data}, note=#{note}, " +
-                "high=#{high}, low=#{low}, " +
-                "max=#{max}, min=#{min}, " +
-                "step=#{step}, decimals={decimals}, " +
-                "unit=#{unit} WHERE id=#{id}"})
-    void changeSchedule(Schedule schedule);
+    @Select("SELECT * FROM tSchedule WHERE id = #{id}")
+    Schedule getScheduleById(int id);
+
+    /**
+     * 修改控制策略
+     * @param scheduleDto 策略 DTO 对象
+     */
+    @Update("UPDATE tSchedule SET high=#{high}, low=#{low} WHERE id=#{id}")
+    void changeSchedule(ScheduleDto scheduleDto);
+
+    /**
+     * 修改选择的 Cron 表达式
+     * @param id Cron 表达式 id
+     */
+    @Update("UPDATE tCronSelect SET cid = #{id}")
+    void changeCronSelect(Integer id);
 
 }

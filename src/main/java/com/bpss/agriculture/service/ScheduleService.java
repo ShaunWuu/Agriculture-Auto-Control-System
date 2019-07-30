@@ -2,7 +2,9 @@ package com.bpss.agriculture.service;
 
 import com.bpss.agriculture.entity.Cron;
 import com.bpss.agriculture.entity.Schedule;
+import com.bpss.agriculture.entity.ScheduleDto;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -16,6 +18,7 @@ public interface ScheduleService {
 
     List<Schedule> getSchedule();
 
-    void changeSchedule(List<Schedule> scheduleList);
+    void changeSchedule(List<ScheduleDto> scheduleDtoList);
 
+    void changeCronSelect(Integer id);
 }

@@ -19,4 +19,13 @@ public class MotoCmdInfo {
     private String vcTime;
     private int iOperatorId;
 
+    public MotoCmdInfo(String vcMotoName, int iActCmd, String vcActName, int iCmdStatus, String vcRemark, String vcTime, int iOperatorId) {
+        this.vcMotoName = vcMotoName;
+        this.iActCmd = iActCmd;
+        this.vcActName = vcActName;
+        this.iCmdStatus = iCmdStatus;
+        this.vcRemark = vcRemark;
+        this.vcTime = vcTime;
+        this.iOperatorId = iOperatorId;
+    }
 }
