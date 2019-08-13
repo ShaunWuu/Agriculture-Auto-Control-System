@@ -24,15 +24,15 @@
     <div class="sidebar" data-color="purple" data-background-color="white"
          data-image="../static/img/sidebar-3.jpg" th:data-image="@{/img/sidebar-3.jpg}">
       <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          自动控制系统 - 系统记录
+        <a href="https://www.jgsu.edu.cn/" target="_blank" class="simple-text logo-normal">
+          井冈山大学 - 智慧农业系统
         </a>
       </div>
       <div th:replace="commons/bar::sidebar(key='table')"></div>
     </div>
     <div class="main-panel">
       <!-- Navbar -->
-      <nav th:replace="commons/bar::navbar"></nav>
+      <nav th:replace="commons/bar::navbar(key='table')"></nav>
       <!-- End Navbar -->
       <div class="content">
         <div class="container-fluid">

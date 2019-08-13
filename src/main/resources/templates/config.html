@@ -22,15 +22,15 @@
   <div class="sidebar" data-color="purple" data-background-color="white"
        data-image="../static/img/sidebar-2.jpg" th:data-image="@{/img/sidebar-2.jpg}">
     <div class="logo">
-      <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-        自动控制系统 - 控制配置
+      <a href="https://www.jgsu.edu.cn/" target="_blank" class="simple-text logo-normal">
+        井冈山大学 - 智慧农业系统
       </a>
     </div>
     <div th:replace="commons/bar::sidebar(key='config')"></div>
   </div>
   <div class="main-panel">
     <!-- Navbar -->
-    <nav th:replace="commons/bar::navbar"></nav>
+    <nav th:replace="commons/bar::navbar(key='config')"></nav>
     <!-- End Navbar -->
     <div class="content">
       <div class="container-fluid">
@@ -97,7 +97,7 @@
                     <!-- 土壤温度1 -->
                     <div class="col-md-3">
                       <div class="form-group">
-                        <label>土壤温度1范围: </label>
+                        <label>土壤温度1、3平均范围: </label>
                         <div id="earthTemp1" class="slider slider-primary noUi-target noUi-ltr noUi-horizontal"></div>
                         <input type="hidden" value="null" th:value="${scheduleList.get(2).getHigh()}"
                                id="earthTemp1High">
@@ -123,7 +123,7 @@
                     <!-- 土壤水分1 -->
                     <div class="col-md-3">
                       <div class="form-group">
-                        <label>土壤水分1范围: </label>
+                        <label>土壤水分1、3平均范围: </label>
                         <div id="earthWater1" class="slider slider-info noUi-target noUi-ltr noUi-horizontal"></div>
                         <input type="hidden" value="null" th:value="${scheduleList.get(3).getHigh()}"
                                id="earthWater1High">
@@ -152,7 +152,7 @@
                     <!-- 土壤温度2 -->
                     <div class="col-md-3">
                       <div class="form-group">
-                        <label>土壤温度2范围: </label>
+                        <label>土壤温度2、4平均范围: </label>
                         <div id="earthTemp2" class="slider slider-primary noUi-target noUi-ltr noUi-horizontal"></div>
                         <input type="hidden" value="null" th:value="${scheduleList.get(4).getHigh()}"
                                id="earthTemp2High">
@@ -178,7 +178,7 @@
                     <!-- 土壤水分2 -->
                     <div class="col-md-3">
                       <div class="form-group">
-                        <label>土壤水分2范围: </label>
+                        <label>土壤水分2、4平均范围: </label>
                         <div id="earthWater2" class="slider slider-info noUi-target noUi-ltr noUi-horizontal"></div>
                         <input type="hidden" value="null" th:value="${scheduleList.get(5).getHigh()}"
                                id="earthWater2High">

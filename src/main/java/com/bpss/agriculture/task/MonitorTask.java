@@ -45,18 +45,18 @@ public class MonitorTask {
      * 0 代表开， 1 代表关
      * 原数据库的设计是如此
      */
-    private static final int CLOSE_OPEN = 0x10;
-    private static final int OPEN_CLOSE = 0x01;
-    private static final int OPEN_OPEN = 0x00;
+    private static final int CLOSE_OPEN = 0b10;
+    private static final int OPEN_CLOSE = 0b01;
+    private static final int OPEN_OPEN = 0b00;
 
-    private static final int OPEN_OPEN_OPEN = 0x000;
-    private static final int OPEN_OPEN_CLOSE = 0x001;
-    private static final int OPEN_CLOSE_OPEN = 0x010;
-    private static final int CLOSE_OPEN_OPEN = 0x100;
-    private static final int OPEN_CLOSE_CLOSE = 0x011;
-    private static final int CLOSE_CLOSE_OPEN = 0x110;
-    private static final int CLOSE_OPEN_CLOSE = 0x101;
-    private static final int CLOSE_CLOSE_CLOSE = 0x111;
+    private static final int OPEN_OPEN_OPEN = 0b000;
+    private static final int OPEN_OPEN_CLOSE = 0b001;
+    private static final int OPEN_CLOSE_OPEN = 0b010;
+    private static final int CLOSE_OPEN_OPEN = 0b100;
+    private static final int OPEN_CLOSE_CLOSE = 0b011;
+    private static final int CLOSE_CLOSE_OPEN = 0b110;
+    private static final int CLOSE_OPEN_CLOSE = 0b101;
+    private static final int CLOSE_CLOSE_CLOSE = 0b111;
 
     public void monitorGreenHouse() {
 

@@ -30,7 +30,7 @@
       <div th:replace="commons/bar::sidebar(key='dashboard')"></div>
     </div>
     <div class="main-panel">
-      <nav th:replace="commons/bar::navbar"></nav>
+      <nav th:replace="commons/bar::navbar(key='dashboard')"></nav>
       <div class="content">
         <div class="container-fluid">
           <!-- 仪表盘 -->
@@ -982,7 +982,7 @@
               <div class="card">
                 <div class="card-header card-header-warning">
                   <h4 class="card-title">设备操作记录</h4>
-                  <a href="table.html" class="card-category">&gt;&nbsp;只显示简略的操作记录，详细信息请点击这里查看详细记录</a>
+                  <a th:href="@{/table/1}" class="card-category">&gt;&nbsp;只显示简略的操作记录，详细信息请点击这里查看详细记录</a>
                 </div>
                 <div class="card-body table-responsive">
                   <table class="table table-hover">
