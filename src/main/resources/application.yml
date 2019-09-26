@@ -1,24 +1,19 @@
 server:
   port: 8079
 logging:
-  level: debug
+  level: info
+  file: ./agriculture.log
 
 spring:
   datasource:
-#    url: jdbc:sqlserver://192.168.200.3:1433;database=jiaoxue
-#    username: sa
-#    password: Zte123
-    url: jdbc:mysql://47.101.51.81:3306/jiaoxue?serverTimezone=Asia/Shanghai
-    username: root
-    password: qweqwe
-    driver-class-name: com.mysql.cj.jdbc.Driver
-#  thymeleaf:
-#    mode: LEGACYHTML5
+    url: jdbc:sqlserver://192.168.200.3:1433;database=jiaoxue
+    username: sa
+    password: Zte123
 
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
 
 pagehelper:
-  auto-dialect: mysql
+  auto-dialect: sqlserver
   reasonable: true

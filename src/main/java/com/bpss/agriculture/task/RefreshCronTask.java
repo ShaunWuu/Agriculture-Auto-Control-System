@@ -1,6 +1,7 @@
 package com.bpss.agriculture.task;
 
 import com.bpss.agriculture.mapper.ScheduleMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.quartz.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -16,6 +17,7 @@ import javax.annotation.Resource;
 @Configuration
 @EnableScheduling
 @Component
+@Slf4j
 public class RefreshCronTask {
 
     @Autowired
@@ -43,9 +45,9 @@ public class RefreshCronTask {
         // 从数据库查询出来的
         String searchCron = scheduleMapper.getCronSelect().getCron();
         String currentCronFromDatabase = scheduleMapper.getCronSelect().getNote();
-        System.out.println("当前监测周期: " + currentCronFromDatabase);
+        log.info("当前监测周期: " + currentCronFromDatabase);
         if (!currentCron.equals(searchCron)) {
-            System.out.println("修改监测周期表达式为: " + searchCron);
+            log.warn("修改监测周期表达式为: " + searchCron);
             // 表达式调度构建器
             CronScheduleBuilder scheduleBuilder = CronScheduleBuilder.cronSchedule(searchCron);
             // 按新的cronExpression表达式重新构建trigger
@@ -55,7 +57,6 @@ public class RefreshCronTask {
             // 按新的trigger重新设置job执行
             scheduler.rescheduleJob(cronTrigger.getKey(), trigger);
             currentCron = searchCron;
-
         }
     }
 

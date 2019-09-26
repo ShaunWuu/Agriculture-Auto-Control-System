@@ -123,7 +123,7 @@
                     <!-- 土壤水分1 -->
                     <div class="col-md-3">
                       <div class="form-group">
-                        <label>土壤水分1、3平均范围: </label>
+                        <label>土壤水分1、2平均范围: </label>
                         <div id="earthWater1" class="slider slider-info noUi-target noUi-ltr noUi-horizontal"></div>
                         <input type="hidden" value="null" th:value="${scheduleList.get(3).getHigh()}"
                                id="earthWater1High">
@@ -176,34 +176,34 @@
                       </div>
                     </div>
                     <!-- 土壤水分2 -->
-                    <div class="col-md-3">
-                      <div class="form-group">
-                        <label>土壤水分2、4平均范围: </label>
-                        <div id="earthWater2" class="slider slider-info noUi-target noUi-ltr noUi-horizontal"></div>
-                        <input type="hidden" value="null" th:value="${scheduleList.get(5).getHigh()}"
-                               id="earthWater2High">
-                        <input type="hidden" value="null" th:value="${scheduleList.get(5).getLow()}"
-                               id="earthWater2Low">
-                        <input type="hidden" value="null" th:value="${scheduleList.get(5).getMax()}"
-                               id="earthWater2Max">
-                        <input type="hidden" value="null" th:value="${scheduleList.get(5).getMin()}"
-                               id="earthWater2Min">
-                        <div class="row">
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label>最低湿度 %</label>
-                              <input id="lowEarthWater2" type="text" class="form-control">
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label>最高湿度 %</label>
-                              <input id="highEarthWater2" type="text" class="form-control">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    <!--<div class="col-md-3">-->
+                    <!--  <div class="form-group">-->
+                    <!--    <label>土壤水分2、4平均范围: </label>-->
+                    <!--    <div id="earthWater2" class="slider slider-info noUi-target noUi-ltr noUi-horizontal"></div>-->
+                    <!--    <input type="hidden" value="null" th:value="${scheduleList.get(5).getHigh()}"-->
+                    <!--           id="earthWater2High">-->
+                    <!--    <input type="hidden" value="null" th:value="${scheduleList.get(5).getLow()}"-->
+                    <!--           id="earthWater2Low">-->
+                    <!--    <input type="hidden" value="null" th:value="${scheduleList.get(5).getMax()}"-->
+                    <!--           id="earthWater2Max">-->
+                    <!--    <input type="hidden" value="null" th:value="${scheduleList.get(5).getMin()}"-->
+                    <!--           id="earthWater2Min">-->
+                    <!--    <div class="row">-->
+                    <!--      <div class="col-md-6">-->
+                    <!--        <div class="form-group">-->
+                    <!--          <label>最低湿度 %</label>-->
+                    <!--          <input id="lowEarthWater2" type="text" class="form-control">-->
+                    <!--        </div>-->
+                    <!--      </div>-->
+                    <!--      <div class="col-md-6">-->
+                    <!--        <div class="form-group">-->
+                    <!--          <label>最高湿度 %</label>-->
+                    <!--          <input id="highEarthWater2" type="text" class="form-control">-->
+                    <!--        </div>-->
+                    <!--      </div>-->
+                    <!--    </div>-->
+                    <!--  </div>-->
+                    <!--</div>-->
                     <!-- 光照强度 -->
                     <div class="col-md-3">
                       <div class="form-group">
@@ -300,8 +300,8 @@
         var lowEarthWater1 = document.getElementById('lowEarthWater1');
         var highEarthWater1 = document.getElementById('highEarthWater1');
 
-        var lowEarthWater2 = document.getElementById('lowEarthWater2');
-        var highEarthWater2 = document.getElementById('highEarthWater2');
+        // var lowEarthWater2 = document.getElementById('lowEarthWater2');
+        // var highEarthWater2 = document.getElementById('highEarthWater2');
 
         var lowLight = document.getElementById('lowLight');
         var highLight = document.getElementById('highLight');
@@ -338,8 +338,8 @@
 
         var scheduleDto5 = {
             "id": 6,
-            "high": parseFloat(highEarthWater2.value),
-            "low": parseFloat(lowEarthWater2.value)
+            "high": parseFloat(100),
+            "low": parseFloat(0)
         }
 
         var scheduleDto6 = {

@@ -20,7 +20,7 @@ public interface ScheduleMapper {
      * 获得 Cron 列表
      * @return List<Cron>
      */
-    @Select("SELECT * FROM tCron ORDER BY id")
+    @Select("SELECT * FROM tCron ORDER BY id ASC")
     List<Cron> getAllCron();
 
     /**

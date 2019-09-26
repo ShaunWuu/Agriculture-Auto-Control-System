@@ -3,7 +3,7 @@ var airWater = document.getElementById("airWater");
 var earthTemp1 = document.getElementById("earthTemp1");
 var earthWater1 = document.getElementById("earthWater1");
 var earthTemp2 = document.getElementById("earthTemp2");
-var earthWater2 = document.getElementById("earthWater2");
+// var earthWater2 = document.getElementById("earthWater2");
 var Light = document.getElementById("Light");
 
 var airTempHigh = parseInt(document.getElementById("airTempHigh").value);
@@ -31,10 +31,10 @@ var earthWater1Low = parseInt(document.getElementById("earthWater1Low").value);
 var earthWater1Max = parseInt(document.getElementById("earthWater1Max").value);
 var earthWater1Min = parseInt(document.getElementById("earthWater1Min").value);
 
-var earthWater2High = parseInt(document.getElementById("earthWater2High").value);
-var earthWater2Low = parseInt(document.getElementById("earthWater2Low").value);
-var earthWater2Max = parseInt(document.getElementById("earthWater2Max").value);
-var earthWater2Min = parseInt(document.getElementById("earthWater2Min").value);
+// var earthWater2High = parseInt(document.getElementById("earthWater2High").value);
+// var earthWater2Low = parseInt(document.getElementById("earthWater2Low").value);
+// var earthWater2Max = parseInt(document.getElementById("earthWater2Max").value);
+// var earthWater2Min = parseInt(document.getElementById("earthWater2Min").value);
 
 var LightHigh = parseInt(document.getElementById("LightHigh").value);
 var LightLow = parseInt(document.getElementById("LightLow").value);
@@ -67,7 +67,7 @@ createSlider(airWater, airWaterHigh, airWaterLow, 1, airWaterMax, airWaterMin, 0
 createSlider(earthTemp1, earthTemp1High, earthTemp1Low, 1, earthTemp1Max, earthTemp1Min, 0);
 createSlider(earthWater1, earthWater1High, earthWater1Low, 1, earthWater1Max, earthWater1Min, 0);
 createSlider(earthTemp2, earthTemp2High, earthTemp2Low, 1, earthTemp2Max, earthTemp2Min, 0);
-createSlider(earthWater2, earthWater2High, earthWater2Low, 1, earthWater2Max, earthWater2Min, 0);
+// createSlider(earthWater2, earthWater2High, earthWater2Low, 1, earthWater2Max, earthWater2Min, 0);
 createSlider(Light, LightHigh, LightLow, 100, LightMax, LightMin, 0);
 
 setAllSliderNumber();
@@ -169,22 +169,22 @@ function setAllSliderNumber(){
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-    earthWater2.noUiSlider.on('update', function (values) {
-        document.getElementById('lowEarthWater2').setAttribute('value', values[0]);
-        document.getElementById('lowEarthWater2').value = values[0];
-        document.getElementById('highEarthWater2').setAttribute('value', values[1]);
-        document.getElementById('highEarthWater2').value = values[1];
-    });
-
-    lowEarthWater2.addEventListener('change', function () {
-        var getter = earthWater2.noUiSlider.get();
-        earthWater2.noUiSlider.set([lowEarthWater2.value,getter[1]])
-    });
-
-    highEarthWater2.addEventListener('change', function () {
-        var getter = earthWater2.noUiSlider.get();
-        earthWater2.noUiSlider.set([getter[0], highEarthWater2.value])
-    });
+    // earthWater2.noUiSlider.on('update', function (values) {
+    //     document.getElementById('lowEarthWater2').setAttribute('value', values[0]);
+    //     document.getElementById('lowEarthWater2').value = values[0];
+    //     document.getElementById('highEarthWater2').setAttribute('value', values[1]);
+    //     document.getElementById('highEarthWater2').value = values[1];
+    // });
+    //
+    // lowEarthWater2.addEventListener('change', function () {
+    //     var getter = earthWater2.noUiSlider.get();
+    //     earthWater2.noUiSlider.set([lowEarthWater2.value,getter[1]])
+    // });
+    //
+    // highEarthWater2.addEventListener('change', function () {
+    //     var getter = earthWater2.noUiSlider.get();
+    //     earthWater2.noUiSlider.set([getter[0], highEarthWater2.value])
+    // });
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////
 

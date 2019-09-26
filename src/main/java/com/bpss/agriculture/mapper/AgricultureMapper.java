@@ -49,7 +49,8 @@ public interface AgricultureMapper {
      * SQL Server 使用 Select("SELECT TOP 16 * FROM tMotoCmdInfo")
      *
      */
-    @Select("SELECT * FROM tMotoCmdInfo LIMIT 16")
+    // @Select("SELECT * FROM tMotoCmdInfo LIMIT 16")
+    @Select("SELECT TOP 16 * FROM tMotoCmdInfo ORDER BY ID DESC")
     List<MotoCmdInfo> getLatestMotoCmdInfo();
 
     /**
