@@ -38,11 +38,11 @@
       <version>6.1.0.jre8</version>
     </dependency>
     <!-- 我自己测试的数据存在 MySQL 数据中 -->
-    <dependency>
-      <groupId>mysql</groupId>
-      <artifactId>mysql-connector-java</artifactId>
-      <version>8.0.15</version>
-    </dependency>
+    <!--<dependency>-->
+    <!--  <groupId>mysql</groupId>-->
+    <!--  <artifactId>mysql-connector-java</artifactId>-->
+    <!--  <version>8.0.15</version>-->
+    <!--</dependency>-->
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
