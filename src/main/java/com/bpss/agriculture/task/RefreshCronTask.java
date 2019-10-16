@@ -45,7 +45,7 @@ public class RefreshCronTask {
         // 从数据库查询出来的
         String searchCron = scheduleMapper.getCronSelect().getCron();
         String currentCronFromDatabase = scheduleMapper.getCronSelect().getNote();
-        log.info("当前监测周期: " + currentCronFromDatabase);
+        // log.info("当前监测周期: " + currentCronFromDatabase);
         if (!currentCron.equals(searchCron)) {
             log.warn("修改监测周期表达式为: " + searchCron);
             // 表达式调度构建器
